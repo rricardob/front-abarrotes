@@ -3,16 +3,18 @@ import { Header } from '../header/Header'
 import { Aside } from '../aside/Aside'
 import { Content } from '../content/Content'
 import { Footer } from '../footer/Footer'
-import { Wrapper } from '../wrapper/Wrapper'
 
 export const Dashboard = () => {
   return (
-    <div>
+    <div className="container-scroller">
       <Aside />
-      <Header />
-      <Content />
-      <Footer />
+      <div className="container-fluid page-body-wrapper">
+        <Header />
+        <div className="main-panel">
+          <Content />
+          <Footer />
+        </div>
+      </div>
     </div>
-
   )
 }

@@ -2,10 +2,13 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <link rel="icon" href="%PUBLIC_URL%/dist/img/favicon.ico" />
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Web site created using create-react-app"
+    />
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
     <!--
       manifest.json provides metadata used when your web app is installed on a
@@ -21,73 +24,24 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <!-- files css -->
 
-    <!-- favicon
-		============================================ -->
-    <link rel="shortcut icon" type="image/x-icon" href="%PUBLIC_URL%/dist/img/favicon.ico">
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="%PUBLIC_URL%/assets/vendors/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="%PUBLIC_URL%/assets/vendors/css/vendor.bundle.base.css">
+    <!-- endinject -->
+    <!-- Plugin css for this page -->
+    <link rel="stylesheet" href="%PUBLIC_URL%/assets/vendors/jvectormap/jquery-jvectormap.css">
+    <link rel="stylesheet" href="%PUBLIC_URL%/assets/vendors/flag-icon-css/css/flag-icon.min.css">
+    <link rel="stylesheet" href="%PUBLIC_URL%/assets/vendors/owl-carousel-2/owl.carousel.min.css">
+    <link rel="stylesheet" href="%PUBLIC_URL%/assets/vendors/owl-carousel-2/owl.theme.default.min.css">
+    <!-- End plugin css for this page -->
 
-    <!-- Google Fonts
-		============================================ -->
-    <link 
-      href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700,900" 
-      rel="stylesheet">
+    <!-- Layout styles -->
+    <link rel="stylesheet" href="%PUBLIC_URL%/assets/css/style.css">
+    <!-- End layout styles -->
+    <link rel="shortcut icon" href="%PUBLIC_URL%/assets/images/favicon.png" />
 
-    <!-- Bootstrap CSS
-		============================================ -->
-    <link rel="stylesheet" href="%PUBLIC_URL%/dist/css/bootstrap.min.css">
-
-    <!-- Bootstrap CSS
-		============================================ -->
-    <link rel="stylesheet" href="%PUBLIC_URL%/dist/css/font-awesome.min.css">
-
-    <!-- nalika Icon CSS
-		============================================ -->
-    <link rel="stylesheet" href="%PUBLIC_URL%/dist/css/nalika-icon.css">
-
-    <!-- owl.carousel CSS
-		============================================ -->
-    <link rel="stylesheet" href="%PUBLIC_URL%/dist/css/owl.carousel.css">
-    <link rel="stylesheet" href="%PUBLIC_URL%/dist/css/owl.theme.css">
-    <link rel="stylesheet" href="%PUBLIC_URL%/dist/css/owl.transitions.css">
-    <!-- animate CSS
-		============================================ -->
-    <link rel="stylesheet" href="%PUBLIC_URL%/dist/css/animate.css">
-    <!-- normalize CSS
-		============================================ -->
-    <link rel="stylesheet" href="%PUBLIC_URL%/dist/css/normalize.css">
-    <!-- meanmenu icon CSS
-		============================================ -->
-    <link rel="stylesheet" href="%PUBLIC_URL%/dist/css/meanmenu.min.css">
-    <!-- main CSS
-		============================================ -->
-    <link rel="stylesheet" href="%PUBLIC_URL%/dist/css/main.css">
-    <!-- morrisjs CSS
-		============================================ -->
-    <link rel="stylesheet" href="%PUBLIC_URL%/dist/css/morrisjs/morris.css">
-    <!-- mCustomScrollbar CSS
-		============================================ -->
-    <link rel="stylesheet" href="%PUBLIC_URL%/dist/css/scrollbar/jquery.mCustomScrollbar.min.css">
-    <!-- metisMenu CSS
-		============================================ -->
-    <link rel="stylesheet" href="%PUBLIC_URL%/dist/css/metisMenu/metisMenu.min.css">
-    <link rel="stylesheet" href="%PUBLIC_URL%/dist/css/metisMenu/metisMenu-vertical.css">
-    <!-- calendar CSS
-		============================================ -->
-    <link rel="stylesheet" href="%PUBLIC_URL%/dist/css/calendar/fullcalendar.min.css">
-    <link rel="stylesheet" href="%PUBLIC_URL%/dist/css/calendar/fullcalendar.print.min.css">
-    <!-- style CSS
-		============================================ -->
-    <link rel="stylesheet" href="%PUBLIC_URL%/dist/css/style.css">
-    <!-- responsive CSS
-		============================================ -->
-    <link rel="stylesheet" href="%PUBLIC_URL%/dist/css/responsive.css">
-    <!-- modernizr JS
-		============================================ -->
-    <script src="%PUBLIC_URL%/dist/js/vendor/modernizr-2.8.3.min.js"></script>
-
-
-    <title>Dashboard V.1 | Nalika - Material Admin Template</title>
+    <title>React App</title>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
@@ -103,59 +57,26 @@
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
 
-    <!-- jquery
-		============================================ -->
-    <script src="%PUBLIC_URL%/dist/js/vendor/jquery-1.12.4.min.js"></script>
-    <!-- bootstrap JS
-		============================================ -->
-    <script src="%PUBLIC_URL%/dist/js/bootstrap.min.js"></script>
-    <!-- wow JS
-		============================================ -->
-    <script src="%PUBLIC_URL%/dist/js/wow.min.js"></script>
-    <!-- price-slider JS
-		============================================ -->
-    <script src="%PUBLIC_URL%/dist/js/jquery-price-slider.js"></script>
-    <!-- meanmenu JS
-		============================================ -->
-    <script src="%PUBLIC_URL%/dist/js/jquery.meanmenu.js"></script>
-    <!-- owl.carousel JS
-		============================================ -->
-    <script src="%PUBLIC_URL%/dist/js/owl.carousel.min.js"></script>
-    <!-- sticky JS
-		============================================ -->
-    <script src="%PUBLIC_URL%/dist/js/jquery.sticky.js"></script>
-    <!-- scrollUp JS
-		============================================ -->
-    <script src="%PUBLIC_URL%/dist/js/jquery.scrollUp.min.js"></script>
-    <!-- mCustomScrollbar JS
-		============================================ -->
-    <script src="%PUBLIC_URL%/dist/js/scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
-    <script src="%PUBLIC_URL%/dist/js/scrollbar/mCustomScrollbar-active.js"></script>
-    <!-- metisMenu JS
-		============================================ -->
-    <script src="%PUBLIC_URL%/dist/js/metisMenu/metisMenu.min.js"></script>
-    <script src="%PUBLIC_URL%/dist/js/metisMenu/metisMenu-active.js"></script>
-    <!-- sparkline JS
-		============================================ -->
-    <script src="%PUBLIC_URL%/dist/js/sparkline/jquery.sparkline.min.js"></script>
-    <script src="%PUBLIC_URL%/dist/js/sparkline/jquery.charts-sparkline.js"></script>
-    <!-- calendar JS
-		============================================ -->
-    <script src="%PUBLIC_URL%/dist/js/calendar/moment.min.js"></script>
-    <script src="%PUBLIC_URL%/dist/js/calendar/fullcalendar.min.js"></script>
-    <script src="%PUBLIC_URL%/dist/js/calendar/fullcalendar-active.js"></script>
-	<!-- float JS
-		============================================ -->
-    <script src="%PUBLIC_URL%/dist/js/flot/jquery.flot.js"></script>
-    <script src="%PUBLIC_URL%/dist/js/flot/jquery.flot.resize.js"></script>
-    <script src="%PUBLIC_URL%/dist/js/flot/curvedLines.js"></script>
-    <script src="%PUBLIC_URL%/dist/js/flot/flot-active.js"></script>
-    <!-- plugins JS
-		============================================ -->
-    <script src="%PUBLIC_URL%/dist/js/plugins.js"></script>
-    <!-- main JS
-		============================================ -->
-    <script src="%PUBLIC_URL%/dist/js/main.js"></script>
+    <!-- plugins:js -->
+    <script src="%PUBLIC_URL%/assets/vendors/js/vendor.bundle.base.js"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page -->
+    <script src="%PUBLIC_URL%/assets/vendors/chart.js/Chart.min.js"></script>
+    <script src="%PUBLIC_URL%/assets/vendors/progressbar.js/progressbar.min.js"></script>
+    <script src="%PUBLIC_URL%/assets/vendors/jvectormap/jquery-jvectormap.min.js"></script>
+    <script src="%PUBLIC_URL%/assets/vendors/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
+    <script src="%PUBLIC_URL%/assets/vendors/owl-carousel-2/owl.carousel.min.js"></script>
+    <!-- End plugin js for this page -->
+    <!-- inject:js -->
+    <script src="%PUBLIC_URL%/assets/js/off-canvas.js"></script>
+    <script src="%PUBLIC_URL%/assets/js/hoverable-collapse.js"></script>
+    <script src="%PUBLIC_URL%/assets/js/misc.js"></script>
+    <script src="%PUBLIC_URL%/assets/js/settings.js"></script>
+    <script src="%PUBLIC_URL%/assets/js/todolist.js"></script>
+    <!-- endinject -->
+    <!-- Custom js for this page -->
+    <script src="%PUBLIC_URL%/assets/js/dashboard.js"></script>
+    <!-- End custom js for this page -->
 
   </body>
 </html>
