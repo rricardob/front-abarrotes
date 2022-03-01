@@ -11,63 +11,48 @@ export const Login = () => {
     }
 
     return (
-        <>
-            <div className="color-line"></div>
-            {/*<div className="container-fluid">
-                <div className="row">
-                    <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                        <div className="back-link back-backend">
-                            <a href="index.html" className="btn btn-primary">Back to Dashboard</a>
-                        </div>
-                    </div>
-                </div>
-            </div>*/}
-            <div className="container-fluid">
-                <div className="row">
-                    <div className="col-lg-4 col-md-4 col-sm-4 col-xs-12"></div>
-                    <div className="col-md-4 col-md-4 col-sm-4 col-xs-12">
-                        <div className="text-center m-b-md custom-login">
-                            <h3>PLEASE LOGIN TO APP</h3>
-                            <p>---------------------------</p>
-                        </div>
-                        <div className="hpanel">
-                            <div className="panel-body">
-                                <form action="#" id="loginForm">
+        <div className="container-scroller">
+            <div className="container-fluid page-body-wrapper full-page-wrapper">
+                <div className="row w-100 m-0">
+                    <div className="content-wrapper full-page-wrapper d-flex align-items-center auth login-bg">
+                        <div className="card col-lg-4 mx-auto">
+                            <div className="card-body px-5 py-5">
+                                <h3 className="card-title text-left mb-3">Login</h3>
+                                <form>
                                     <div className="form-group">
-                                        <label className="control-label">Usuario</label>
-                                        <input type="text" placeholder="example@gmail.com" title="Please enter you username" required=""  name="username" id="username" className="form-control"/>
-                                            {/*<span className="help-block small">Your unique username to app</span>*/}
+                                        <label>Username or email *</label>
+                                        <input type="text" className="form-control p_input" />
                                     </div>
                                     <div className="form-group">
-                                        <label className="control-label">Constraseña</label>
-                                        <input type="password" title="Please enter your password" placeholder="******" required="" name="password" id="password" className="form-control"/>
-                                            {/*<span className="help-block small">Yur strong password</span>*/}
+                                        <label>Password *</label>
+                                        <input type="text" className="form-control p_input" />
                                     </div>
-                                    <div className="checkbox login-checkbox">
-                                        <label>
-                                            <input type="checkbox" className="i-checks"/> 
-                                            Recuerdame 
-                                        </label>
-                                        {/*<p className="help-block small">(if this is a private computer)</p>*/}
+                                    <div className="form-group d-flex align-items-center justify-content-between">
+                                        <div className="form-check">
+                                            <label className="form-check-label">
+                                                <input type="checkbox" className="form-check-input" /> Remember me </label>
+                                        </div>
+                                        <a href="#" className="forgot-pass">Forgot password</a>
                                     </div>
-                                    <button 
-                                        className="btn btn-success btn-block loginbtn"
-                                        onClick={ handleLogin }
-                                        >Login
-                                    </button>
-                                    {/*<a className="btn btn-default btn-block" href="#">Registrar</a>*/}
+                                    <div className="text-center">
+                                        <button type="submit" className="btn btn-primary btn-block enter-btn" onClick={handleLogin}>Login</button>
+                                    </div>
+                                    <div className="d-flex">
+                                        <button className="btn btn-facebook mr-2 col">
+                                            <i className="mdi mdi-facebook" /> Facebook </button>
+                                        <button className="btn btn-google col">
+                                            <i className="mdi mdi-google-plus" /> Google plus </button>
+                                    </div>
+                                    <p className="sign-up">Don't have an Account?<a href="#"> Sign Up</a></p>
                                 </form>
                             </div>
                         </div>
                     </div>
-                    <div className="col-lg-4 col-md-4 col-sm-4 col-xs-12"></div>
+                    {/* content-wrapper ends */}
                 </div>
-                {/*<div className="row">
-                    <div className="col-md-12 col-md-12 col-sm-12 col-xs-12 text-center">
-                        <p>Copyright © 2018 <a href="https://colorlib.com/wp/templates/">Colorlib</a> All rights reserved.</p>
-                    </div>
-                </div>*/}
+                {/* row ends */}
             </div>
-        </>
+            {/* page-body-wrapper ends */}
+        </div>
     )
 }
