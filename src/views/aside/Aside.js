@@ -1,4 +1,6 @@
 import React from 'react'
+import { AsideData } from './../../components/aside/AsideData'
+
 
 export const Aside = () => {
     return (
@@ -8,7 +10,7 @@ export const Aside = () => {
                 <a className="sidebar-brand brand-logo-mini" href="index.html"><img src="assets/images/logo-mini.svg" alt="logo" /></a>
             </div>
             <ul className="nav">
-                <li className="nav-item profile">
+                {/*<li className="nav-item profile">
                     <div className="profile-desc">
                         <div className="profile-pic">
                             <div className="count-indicator">
@@ -56,100 +58,25 @@ export const Aside = () => {
                             </a>
                         </div>
                     </div>
-                </li>
+    </li>*/}
                 <li className="nav-item nav-category">
-                    <span className="nav-link">Navigation</span>
+                    <span className="nav-link">Navegacion</span>
                 </li>
-                <li className="nav-item menu-items">
-                    <a className="nav-link" href="index.html">
-                        <span className="menu-icon">
-                            <i className="mdi mdi-speedometer" />
-                        </span>
-                        <span className="menu-title">Cliente</span>
-                        <i className="menu-arrow" />
-                    </a>
-                    <div className="collapse" id="ui-client">
-                        <ul className="nav flex-column sub-menu">
-                            <li className="nav-item"> <a className="nav-link" href="pages/ui-features/buttons.html">Buttons</a></li>
-                            <li className="nav-item"> <a className="nav-link" href="pages/ui-features/dropdowns.html">Dropdowns</a></li>
-                            <li className="nav-item"> <a className="nav-link" href="pages/ui-features/typography.html">Typography</a></li>
-                        </ul>
-                    </div>
-                </li>
-                <li className="nav-item menu-items">
-                    <a className="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
-                        <span className="menu-icon">
-                            <i className="mdi mdi-laptop" />
-                        </span>
-                        <span className="menu-title">Vendedor</span>
-                        <i className="menu-arrow" />
-                    </a>
-                    <div className="collapse" id="ui-basic">
-                        <ul className="nav flex-column sub-menu">
-                            <li className="nav-item"> <a className="nav-link" href="pages/ui-features/buttons.html">Buttons</a></li>
-                            <li className="nav-item"> <a className="nav-link" href="pages/ui-features/dropdowns.html">Dropdowns</a></li>
-                            <li className="nav-item"> <a className="nav-link" href="pages/ui-features/typography.html">Typography</a></li>
-                        </ul>
-                    </div>
-                </li>
-                <li className="nav-item menu-items">
-                    <a className="nav-link" href="pages/forms/basic_elements.html">
-                        <span className="menu-icon">
-                            <i className="mdi mdi-playlist-play" />
-                        </span>
-                        <span className="menu-title">Form Elements</span>
-                    </a>
-                </li>
-                <li className="nav-item menu-items">
-                    <a className="nav-link" href="pages/tables/basic-table.html">
-                        <span className="menu-icon">
-                            <i className="mdi mdi-table-large" />
-                        </span>
-                        <span className="menu-title">Tables</span>
-                    </a>
-                </li>
-                <li className="nav-item menu-items">
-                    <a className="nav-link" href="pages/charts/chartjs.html">
-                        <span className="menu-icon">
-                            <i className="mdi mdi-chart-bar" />
-                        </span>
-                        <span className="menu-title">Charts</span>
-                    </a>
-                </li>
-                <li className="nav-item menu-items">
-                    <a className="nav-link" href="pages/icons/mdi.html">
-                        <span className="menu-icon">
-                            <i className="mdi mdi-contacts" />
-                        </span>
-                        <span className="menu-title">Icons</span>
-                    </a>
-                </li>
-                <li className="nav-item menu-items">
-                    <a className="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
-                        <span className="menu-icon">
-                            <i className="mdi mdi-security" />
-                        </span>
-                        <span className="menu-title">User Pages</span>
-                        <i className="menu-arrow" />
-                    </a>
-                    <div className="collapse" id="auth">
-                        <ul className="nav flex-column sub-menu">
-                            <li className="nav-item"> <a className="nav-link" href="pages/samples/blank-page.html"> Blank Page </a></li>
-                            <li className="nav-item"> <a className="nav-link" href="pages/samples/error-404.html"> 404 </a></li>
-                            <li className="nav-item"> <a className="nav-link" href="pages/samples/error-500.html"> 500 </a></li>
-                            <li className="nav-item"> <a className="nav-link" href="pages/samples/login.html"> Login </a></li>
-                            <li className="nav-item"> <a className="nav-link" href="pages/samples/register.html"> Register </a></li>
-                        </ul>
-                    </div>
-                </li>
-                <li className="nav-item menu-items">
-                    <a className="nav-link" href="http://www.bootstrapdash.com/demo/corona-free/jquery/documentation/documentation.html">
-                        <span className="menu-icon">
-                            <i className="mdi mdi-file-document-box" />
-                        </span>
-                        <span className="menu-title">Documentation</span>
-                    </a>
-                </li>
+                {
+                    AsideData.map((val, key) => {
+                        return (
+                        <li className="nav-item menu-items" key={key} onClick={() => {window.location.pathname = val.link}}>
+                            <a className="nav-link">
+                                <span className="menu-icon">
+                                    <i className={val.icon} />
+                                </span>
+                                <span className="menu-title">{val.title}</span>
+                            </a>
+                        </li>
+                        )
+                    })
+                }
+
             </ul>
         </nav >
     )
