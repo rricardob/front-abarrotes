@@ -1,8 +1,9 @@
-import React from 'react'
-import { Header } from '../header/Header'
-import { Aside } from '../aside/Aside'
-import { Content } from '../content/Content'
-import { Footer } from '../footer/Footer'
+import React from 'react';
+import { Header } from '../header/Header';
+import { Aside } from '../aside/Aside';
+import { Content } from '../content/Content';
+import { Footer } from '../footer/Footer';
+import { Outlet } from 'react-router-dom';
 
 export const Dashboard = () => {
   return (
@@ -11,10 +12,11 @@ export const Dashboard = () => {
       <div className="container-fluid page-body-wrapper">
         <Header />
         <div className="main-panel">
-          <Content />
+          {/* <Content /> */}
+          <Outlet />
           <Footer />
         </div>
       </div>
     </div>
-  )
-}
+  );
+};

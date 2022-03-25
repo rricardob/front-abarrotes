@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const Content = () => {
+export function Content() {
   return (
     <div className="content-wrapper">
       <div className="row">
@@ -9,15 +9,25 @@ export const Content = () => {
             <div className="card-body py-0 px-0 px-sm-3">
               <div className="row align-items-center">
                 <div className="col-4 col-sm-3 col-xl-2">
-                  <img src="assets/images/dashboard/Group126@2x.png" className="gradient-corona-img img-fluid" />
+                  <img
+                    src="assets/images/dashboard/Group126@2x.png"
+                    className="gradient-corona-img img-fluid"
+                  />
                 </div>
                 <div className="col-5 col-sm-7 col-xl-8 p-0">
-                  <h4 className="mb-1 mb-sm-0">Want even more features?</h4>
-                  <p className="mb-0 font-weight-normal d-none d-sm-block">Check out our Pro version with 5 unique layouts!</p>
+                  <h3 className="mb-1 mb-sm-0">
+                    PAGINA INICIAL DONDE SE MOSTRARAN DATOS POR DEFECTO HECHO
+                    POR TRUST CODE
+                  </h3>
                 </div>
                 <div className="col-3 col-sm-2 col-xl-2 pl-0 text-center">
                   <span>
-                    <a href="https://www.bootstrapdash.com/product/corona-admin-template/" target="_blank" className="btn btn-outline-light btn-rounded get-started-btn">Upgrade to PRO</a>
+                    <a
+                      href="https://www.bootstrapdash.com/product/corona-admin-template/"
+                      target="_blank"
+                      className="btn btn-outline-light btn-rounded get-started-btn">
+                      Upgrade to PRO
+                    </a>
                   </span>
                 </div>
               </div>
@@ -33,7 +43,9 @@ export const Content = () => {
                 <div className="col-9">
                   <div className="d-flex align-items-center align-self-start">
                     <h3 className="mb-0">$12.34</h3>
-                    <p className="text-success ml-2 mb-0 font-weight-medium">+3.5%</p>
+                    <p className="text-success ml-2 mb-0 font-weight-medium">
+                      +3.5%
+                    </p>
                   </div>
                 </div>
                 <div className="col-3">
@@ -42,7 +54,9 @@ export const Content = () => {
                   </div>
                 </div>
               </div>
-              <h6 className="text-muted font-weight-normal">Potential growth</h6>
+              <h6 className="text-muted font-weight-normal">
+                Potential growth
+              </h6>
             </div>
           </div>
         </div>
@@ -53,7 +67,9 @@ export const Content = () => {
                 <div className="col-9">
                   <div className="d-flex align-items-center align-self-start">
                     <h3 className="mb-0">$17.34</h3>
-                    <p className="text-success ml-2 mb-0 font-weight-medium">+11%</p>
+                    <p className="text-success ml-2 mb-0 font-weight-medium">
+                      +11%
+                    </p>
                   </div>
                 </div>
                 <div className="col-3">
@@ -73,7 +89,9 @@ export const Content = () => {
                 <div className="col-9">
                   <div className="d-flex align-items-center align-self-start">
                     <h3 className="mb-0">$12.34</h3>
-                    <p className="text-danger ml-2 mb-0 font-weight-medium">-2.4%</p>
+                    <p className="text-danger ml-2 mb-0 font-weight-medium">
+                      -2.4%
+                    </p>
                   </div>
                 </div>
                 <div className="col-3">
@@ -93,7 +111,9 @@ export const Content = () => {
                 <div className="col-9">
                   <div className="d-flex align-items-center align-self-start">
                     <h3 className="mb-0">$31.53</h3>
-                    <p className="text-success ml-2 mb-0 font-weight-medium">+3.5%</p>
+                    <p className="text-success ml-2 mb-0 font-weight-medium">
+                      +3.5%
+                    </p>
                   </div>
                 </div>
                 <div className="col-3">
@@ -152,8 +172,12 @@ export const Content = () => {
                       </div>
                       <div className="preview-item-content d-sm-flex flex-grow">
                         <div className="flex-grow">
-                          <h6 className="preview-subject">Admin dashboard design</h6>
-                          <p className="text-muted mb-0">Broadcast web app mockup</p>
+                          <h6 className="preview-subject">
+                            Admin dashboard design
+                          </h6>
+                          <p className="text-muted mb-0">
+                            Broadcast web app mockup
+                          </p>
                         </div>
                         <div className="mr-auto text-sm-right pt-2 pt-sm-0">
                           <p className="text-muted">15 minutes ago</p>
@@ -169,7 +193,9 @@ export const Content = () => {
                       </div>
                       <div className="preview-item-content d-sm-flex flex-grow">
                         <div className="flex-grow">
-                          <h6 className="preview-subject">Wordpress Development</h6>
+                          <h6 className="preview-subject">
+                            Wordpress Development
+                          </h6>
                           <p className="text-muted mb-0">Upload new design</p>
                         </div>
                         <div className="mr-auto text-sm-right pt-2 pt-sm-0">
@@ -187,7 +213,9 @@ export const Content = () => {
                       <div className="preview-item-content d-sm-flex flex-grow">
                         <div className="flex-grow">
                           <h6 className="preview-subject">Project meeting</h6>
-                          <p className="text-muted mb-0">New project discussion</p>
+                          <p className="text-muted mb-0">
+                            New project discussion
+                          </p>
                         </div>
                         <div className="mr-auto text-sm-right pt-2 pt-sm-0">
                           <p className="text-muted">35 minutes ago</p>
@@ -204,7 +232,9 @@ export const Content = () => {
                       <div className="preview-item-content d-sm-flex flex-grow">
                         <div className="flex-grow">
                           <h6 className="preview-subject">Broadcast Mail</h6>
-                          <p className="text-muted mb-0">Sent release details to team</p>
+                          <p className="text-muted mb-0">
+                            Sent release details to team
+                          </p>
                         </div>
                         <div className="mr-auto text-sm-right pt-2 pt-sm-0">
                           <p className="text-muted">55 minutes ago</p>
@@ -221,7 +251,9 @@ export const Content = () => {
                       <div className="preview-item-content d-sm-flex flex-grow">
                         <div className="flex-grow">
                           <h6 className="preview-subject">UI Design</h6>
-                          <p className="text-muted mb-0">New application planning</p>
+                          <p className="text-muted mb-0">
+                            New application planning
+                          </p>
                         </div>
                         <div className="mr-auto text-sm-right pt-2 pt-sm-0">
                           <p className="text-muted">50 minutes ago</p>
@@ -245,9 +277,13 @@ export const Content = () => {
                 <div className="col-8 col-sm-12 col-xl-8 my-auto">
                   <div className="d-flex d-sm-block d-md-flex align-items-center">
                     <h2 className="mb-0">$32123</h2>
-                    <p className="text-success ml-2 mb-0 font-weight-medium">+3.5%</p>
+                    <p className="text-success ml-2 mb-0 font-weight-medium">
+                      +3.5%
+                    </p>
                   </div>
-                  <h6 className="text-muted font-weight-normal">11.38% Since last month</h6>
+                  <h6 className="text-muted font-weight-normal">
+                    11.38% Since last month
+                  </h6>
                 </div>
                 <div className="col-4 col-sm-12 col-xl-4 text-center text-xl-right">
                   <i className="icon-lg mdi mdi-codepen text-primary ml-auto" />
@@ -264,9 +300,14 @@ export const Content = () => {
                 <div className="col-8 col-sm-12 col-xl-8 my-auto">
                   <div className="d-flex d-sm-block d-md-flex align-items-center">
                     <h2 className="mb-0">$45850</h2>
-                    <p className="text-success ml-2 mb-0 font-weight-medium">+8.3%</p>
+                    <p className="text-success ml-2 mb-0 font-weight-medium">
+                      +8.3%
+                    </p>
                   </div>
-                  <h6 className="text-muted font-weight-normal"> 9.61% Since last month</h6>
+                  <h6 className="text-muted font-weight-normal">
+                    {' '}
+                    9.61% Since last month
+                  </h6>
                 </div>
                 <div className="col-4 col-sm-12 col-xl-4 text-center text-xl-right">
                   <i className="icon-lg mdi mdi-wallet-travel text-danger ml-auto" />
@@ -283,9 +324,13 @@ export const Content = () => {
                 <div className="col-8 col-sm-12 col-xl-8 my-auto">
                   <div className="d-flex d-sm-block d-md-flex align-items-center">
                     <h2 className="mb-0">$2039</h2>
-                    <p className="text-danger ml-2 mb-0 font-weight-medium">-2.1% </p>
+                    <p className="text-danger ml-2 mb-0 font-weight-medium">
+                      -2.1%{' '}
+                    </p>
                   </div>
-                  <h6 className="text-muted font-weight-normal">2.27% Since last month</h6>
+                  <h6 className="text-muted font-weight-normal">
+                    2.27% Since last month
+                  </h6>
                 </div>
                 <div className="col-4 col-sm-12 col-xl-4 text-center text-xl-right">
                   <i className="icon-lg mdi mdi-monitor text-success ml-auto" />
@@ -307,7 +352,10 @@ export const Content = () => {
                       <th>
                         <div className="form-check form-check-muted m-0">
                           <label className="form-check-label">
-                            <input type="checkbox" className="form-check-input" />
+                            <input
+                              type="checkbox"
+                              className="form-check-input"
+                            />
                           </label>
                         </div>
                       </th>
@@ -325,7 +373,10 @@ export const Content = () => {
                       <td>
                         <div className="form-check form-check-muted m-0">
                           <label className="form-check-label">
-                            <input type="checkbox" className="form-check-input" />
+                            <input
+                              type="checkbox"
+                              className="form-check-input"
+                            />
                           </label>
                         </div>
                       </td>
@@ -339,14 +390,19 @@ export const Content = () => {
                       <td> Credit card </td>
                       <td> 04 Dec 2019 </td>
                       <td>
-                        <div className="badge badge-outline-success">Approved</div>
+                        <div className="badge badge-outline-success">
+                          Approved
+                        </div>
                       </td>
                     </tr>
                     <tr>
                       <td>
                         <div className="form-check form-check-muted m-0">
                           <label className="form-check-label">
-                            <input type="checkbox" className="form-check-input" />
+                            <input
+                              type="checkbox"
+                              className="form-check-input"
+                            />
                           </label>
                         </div>
                       </td>
@@ -360,14 +416,19 @@ export const Content = () => {
                       <td> Cash on delivered </td>
                       <td> 04 Dec 2019 </td>
                       <td>
-                        <div className="badge badge-outline-warning">Pending</div>
+                        <div className="badge badge-outline-warning">
+                          Pending
+                        </div>
                       </td>
                     </tr>
                     <tr>
                       <td>
                         <div className="form-check form-check-muted m-0">
                           <label className="form-check-label">
-                            <input type="checkbox" className="form-check-input" />
+                            <input
+                              type="checkbox"
+                              className="form-check-input"
+                            />
                           </label>
                         </div>
                       </td>
@@ -381,14 +442,19 @@ export const Content = () => {
                       <td> Credit card </td>
                       <td> 04 Dec 2019 </td>
                       <td>
-                        <div className="badge badge-outline-danger">Rejected</div>
+                        <div className="badge badge-outline-danger">
+                          Rejected
+                        </div>
                       </td>
                     </tr>
                     <tr>
                       <td>
                         <div className="form-check form-check-muted m-0">
                           <label className="form-check-label">
-                            <input type="checkbox" className="form-check-input" />
+                            <input
+                              type="checkbox"
+                              className="form-check-input"
+                            />
                           </label>
                         </div>
                       </td>
@@ -402,14 +468,19 @@ export const Content = () => {
                       <td> Online Payment </td>
                       <td> 04 Dec 2019 </td>
                       <td>
-                        <div className="badge badge-outline-success">Approved</div>
+                        <div className="badge badge-outline-success">
+                          Approved
+                        </div>
                       </td>
                     </tr>
                     <tr>
                       <td>
                         <div className="form-check form-check-muted m-0">
                           <label className="form-check-label">
-                            <input type="checkbox" className="form-check-input" />
+                            <input
+                              type="checkbox"
+                              className="form-check-input"
+                            />
                           </label>
                         </div>
                       </td>
@@ -423,7 +494,9 @@ export const Content = () => {
                       <td> Credit card </td>
                       <td> 04 Dec 2019 </td>
                       <td>
-                        <div className="badge badge-outline-success">Approved</div>
+                        <div className="badge badge-outline-success">
+                          Approved
+                        </div>
                       </td>
                     </tr>
                   </tbody>
@@ -444,7 +517,11 @@ export const Content = () => {
               <div className="preview-list">
                 <div className="preview-item border-bottom">
                   <div className="preview-thumbnail">
-                    <img src="assets/images/faces/face6.jpg" alt="image" className="rounded-circle" />
+                    <img
+                      src="assets/images/faces/face6.jpg"
+                      alt="image"
+                      className="rounded-circle"
+                    />
                   </div>
                   <div className="preview-item-content d-flex flex-grow">
                     <div className="flex-grow">
@@ -452,13 +529,19 @@ export const Content = () => {
                         <h6 className="preview-subject">Leonard</h6>
                         <p className="text-muted text-small">5 minutes ago</p>
                       </div>
-                      <p className="text-muted">Well, it seems to be working now.</p>
+                      <p className="text-muted">
+                        Well, it seems to be working now.
+                      </p>
                     </div>
                   </div>
                 </div>
                 <div className="preview-item border-bottom">
                   <div className="preview-thumbnail">
-                    <img src="assets/images/faces/face8.jpg" alt="image" className="rounded-circle" />
+                    <img
+                      src="assets/images/faces/face8.jpg"
+                      alt="image"
+                      className="rounded-circle"
+                    />
                   </div>
                   <div className="preview-item-content d-flex flex-grow">
                     <div className="flex-grow">
@@ -466,13 +549,19 @@ export const Content = () => {
                         <h6 className="preview-subject">Luella Mills</h6>
                         <p className="text-muted text-small">10 Minutes Ago</p>
                       </div>
-                      <p className="text-muted">Well, it seems to be working now.</p>
+                      <p className="text-muted">
+                        Well, it seems to be working now.
+                      </p>
                     </div>
                   </div>
                 </div>
                 <div className="preview-item border-bottom">
                   <div className="preview-thumbnail">
-                    <img src="assets/images/faces/face9.jpg" alt="image" className="rounded-circle" />
+                    <img
+                      src="assets/images/faces/face9.jpg"
+                      alt="image"
+                      className="rounded-circle"
+                    />
                   </div>
                   <div className="preview-item-content d-flex flex-grow">
                     <div className="flex-grow">
@@ -486,7 +575,11 @@ export const Content = () => {
                 </div>
                 <div className="preview-item border-bottom">
                   <div className="preview-thumbnail">
-                    <img src="assets/images/faces/face11.jpg" alt="image" className="rounded-circle" />
+                    <img
+                      src="assets/images/faces/face11.jpg"
+                      alt="image"
+                      className="rounded-circle"
+                    />
                   </div>
                   <div className="preview-item-content d-flex flex-grow">
                     <div className="flex-grow">
@@ -494,7 +587,9 @@ export const Content = () => {
                         <h6 className="preview-subject">Herman May</h6>
                         <p className="text-muted text-small">4 Hours Ago</p>
                       </div>
-                      <p className="text-muted">Thanks a lot. It was easy to fix it .</p>
+                      <p className="text-muted">
+                        Thanks a lot. It was easy to fix it .
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -506,7 +601,9 @@ export const Content = () => {
           <div className="card">
             <div className="card-body">
               <h4 className="card-title">Portfolio Slide</h4>
-              <div className="owl-carousel owl-theme full-width owl-carousel-dash portfolio-carousel" id="owl-carousel-basic">
+              <div
+                className="owl-carousel owl-theme full-width owl-carousel-dash portfolio-carousel"
+                id="owl-carousel-basic">
                 <div className="item">
                   <img src="assets/images/dashboard/Rectangle.jpg" />
                 </div>
@@ -521,7 +618,10 @@ export const Content = () => {
                 <div className="preview-list w-100">
                   <div className="preview-item p-0">
                     <div className="preview-thumbnail">
-                      <img src="assets/images/faces/face12.jpg" className="rounded-circle" />
+                      <img
+                        src="assets/images/faces/face12.jpg"
+                        className="rounded-circle"
+                      />
                     </div>
                     <div className="preview-item-content d-flex flex-grow">
                       <div className="flex-grow">
@@ -529,7 +629,9 @@ export const Content = () => {
                           <h6 className="preview-subject">CeeCee Bass</h6>
                           <p className="text-muted text-small">4 Hours Ago</p>
                         </div>
-                        <p className="text-muted">Well, it seems to be working now.</p>
+                        <p className="text-muted">
+                          Well, it seems to be working now.
+                        </p>
                       </div>
                     </div>
                   </div>
@@ -537,7 +639,14 @@ export const Content = () => {
               </div>
               <p className="text-muted">Well, it seems to be working now. </p>
               <div className="progress progress-md portfolio-progress">
-                <div className="progress-bar bg-success" role="progressbar" style={{ width: '50%' }} aria-valuenow={25} aria-valuemin={0} aria-valuemax={100} />
+                <div
+                  className="progress-bar bg-success"
+                  role="progressbar"
+                  style={{ width: '50%' }}
+                  aria-valuenow={25}
+                  aria-valuemin={0}
+                  aria-valuemax={100}
+                />
               </div>
             </div>
           </div>
@@ -547,43 +656,63 @@ export const Content = () => {
             <div className="card-body">
               <h4 className="card-title">To do list</h4>
               <div className="add-items d-flex">
-                <input type="text" className="form-control todo-list-input" placeholder="enter task.." />
-                <button className="add btn btn-primary todo-list-add-btn">Add</button>
+                <input
+                  type="text"
+                  className="form-control todo-list-input"
+                  placeholder="enter task.."
+                />
+                <button className="add btn btn-primary todo-list-add-btn">
+                  Add
+                </button>
               </div>
               <div className="list-wrapper">
                 <ul className="d-flex flex-column-reverse text-white todo-list todo-list-custom">
                   <li>
                     <div className="form-check form-check-primary">
                       <label className="form-check-label">
-                        <input className="checkbox" type="checkbox" /> Create invoice </label>
+                        <input className="checkbox" type="checkbox" /> Create
+                        invoice{' '}
+                      </label>
                     </div>
                     <i className="remove mdi mdi-close-box" />
                   </li>
                   <li>
                     <div className="form-check form-check-primary">
                       <label className="form-check-label">
-                        <input className="checkbox" type="checkbox" /> Meeting with Alita </label>
+                        <input className="checkbox" type="checkbox" /> Meeting
+                        with Alita{' '}
+                      </label>
                     </div>
                     <i className="remove mdi mdi-close-box" />
                   </li>
                   <li className="completed">
                     <div className="form-check form-check-primary">
                       <label className="form-check-label">
-                        <input className="checkbox" type="checkbox" defaultChecked /> Prepare for presentation </label>
+                        <input
+                          className="checkbox"
+                          type="checkbox"
+                          defaultChecked
+                        />{' '}
+                        Prepare for presentation{' '}
+                      </label>
                     </div>
                     <i className="remove mdi mdi-close-box" />
                   </li>
                   <li>
                     <div className="form-check form-check-primary">
                       <label className="form-check-label">
-                        <input className="checkbox" type="checkbox" /> Plan weekend outing </label>
+                        <input className="checkbox" type="checkbox" /> Plan
+                        weekend outing{' '}
+                      </label>
                     </div>
                     <i className="remove mdi mdi-close-box" />
                   </li>
                   <li>
                     <div className="form-check form-check-primary">
                       <label className="form-check-label">
-                        <input className="checkbox" type="checkbox" /> Pick up kids from school </label>
+                        <input className="checkbox" type="checkbox" /> Pick up
+                        kids from school{' '}
+                      </label>
                     </div>
                     <i className="remove mdi mdi-close-box" />
                   </li>
@@ -609,7 +738,10 @@ export const Content = () => {
                           </td>
                           <td>USA</td>
                           <td className="text-right"> 1500 </td>
-                          <td className="text-right font-weight-medium"> 56.35% </td>
+                          <td className="text-right font-weight-medium">
+                            {' '}
+                            56.35%{' '}
+                          </td>
                         </tr>
                         <tr>
                           <td>
@@ -617,7 +749,10 @@ export const Content = () => {
                           </td>
                           <td>Germany</td>
                           <td className="text-right"> 800 </td>
-                          <td className="text-right font-weight-medium"> 33.25% </td>
+                          <td className="text-right font-weight-medium">
+                            {' '}
+                            33.25%{' '}
+                          </td>
                         </tr>
                         <tr>
                           <td>
@@ -625,7 +760,10 @@ export const Content = () => {
                           </td>
                           <td>Australia</td>
                           <td className="text-right"> 760 </td>
-                          <td className="text-right font-weight-medium"> 15.45% </td>
+                          <td className="text-right font-weight-medium">
+                            {' '}
+                            15.45%{' '}
+                          </td>
                         </tr>
                         <tr>
                           <td>
@@ -633,7 +771,10 @@ export const Content = () => {
                           </td>
                           <td>United Kingdom</td>
                           <td className="text-right"> 450 </td>
-                          <td className="text-right font-weight-medium"> 25.00% </td>
+                          <td className="text-right font-weight-medium">
+                            {' '}
+                            25.00%{' '}
+                          </td>
                         </tr>
                         <tr>
                           <td>
@@ -641,7 +782,10 @@ export const Content = () => {
                           </td>
                           <td>Romania</td>
                           <td className="text-right"> 620 </td>
-                          <td className="text-right font-weight-medium"> 10.25% </td>
+                          <td className="text-right font-weight-medium">
+                            {' '}
+                            10.25%{' '}
+                          </td>
                         </tr>
                         <tr>
                           <td>
@@ -649,7 +793,10 @@ export const Content = () => {
                           </td>
                           <td>Brasil</td>
                           <td className="text-right"> 230 </td>
-                          <td className="text-right font-weight-medium"> 75.00% </td>
+                          <td className="text-right font-weight-medium">
+                            {' '}
+                            75.00%{' '}
+                          </td>
                         </tr>
                       </tbody>
                     </table>
@@ -665,4 +812,4 @@ export const Content = () => {
       </div>
     </div>
   );
-};
+}
