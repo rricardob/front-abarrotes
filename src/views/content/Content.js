@@ -16,8 +16,7 @@ export function Content() {
                 </div>
                 <div className="col-5 col-sm-7 col-xl-8 p-0">
                   <h3 className="mb-1 mb-sm-0">
-                    PAGINA INICIAL DONDE SE MOSTRARAN DATOS POR DEFECTO HECHO
-                    POR TRUST CODE
+                    PAGINA INICIAL DONDE SE MOSTRARAN DATOS!!!
                   </h3>
                 </div>
                 <div className="col-3 col-sm-2 col-xl-2 pl-0 text-center">
@@ -382,7 +381,7 @@ export function Content() {
                       </td>
                       <td>
                         <img src="assets/images/faces/face1.jpg" alt="image" />
-                        <span className="pl-2">Henry Klein</span>
+                        <span className="pl-2">Ricardina Bueno</span>
                       </td>
                       <td> 02312 </td>
                       <td> $14,500 </td>
