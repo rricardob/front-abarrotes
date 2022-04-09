@@ -4,7 +4,7 @@ export function Vendedor() {
   return (
     <>
       <h1>
-        Pagina de Vendedor renderizada con React mi querido muerde almohada
+        Pagina de Vendedor renderizada con React
       </h1>
       <br />
       <br />

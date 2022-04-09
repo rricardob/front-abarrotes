@@ -25,7 +25,7 @@ export const Aside = () => {
                 <span className="count bg-success" />
               </div>
               <div className="profile-name">
-                <h5 className="mb-0 font-weight-normal">Henry Klein</h5>
+                <h5 className="mb-0 font-weight-normal">Fernando Tello</h5>
                 <span>Gold Member</span>
               </div>
             </div>
