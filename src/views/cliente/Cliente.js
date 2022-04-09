@@ -12,13 +12,14 @@ export const Cliente = () => {
   const [loading, setLoading] = useState(false);
 
   let api = helpHttp();
-  let url = 'http://localhost:3000/cliente/findAll';
+  let url = 'cliente/findAll';
+  let rootpath = 'http://localhost:3000/';
 
   //useEffect creada para que la pagina inicie con los datos de nuestro api, PARA QUE LOS DATOS APAREZCAN EN LA TABLA AL PRINCIPIO
   useEffect(() => {
     setLoading(true);
     helpHttp()
-      .get(url)
+      .get(rootpath+url)
       .then(res => {
         //console.log(res);
         if (!res.err) {
@@ -31,7 +32,7 @@ export const Cliente = () => {
 
         setLoading(false);
       });
-  }, [url]);
+  }, [rootpath+url]);
 
   //CONFIGURANDO POST DE LA API
   const createData = data => {
@@ -44,7 +45,7 @@ export const Cliente = () => {
     };
 
     //configurando POST de la api
-    api.post(url, options).then(res => {
+    api.post(rootpath+"cliente/create", options).then(res => {
       console.log(res);
       if (!res.err) {
         //si no hay error actualiza la base de datos
@@ -58,7 +59,7 @@ export const Cliente = () => {
   //CONFIGURANDO UPDATE DE LA API
   const updateData = data => {
     //creo variable para no entrar en conflicto con la url que tengo antes
-    let endpoint = `${url}/${data.id}`;
+    let endpoint = `${rootpath+"cliente/update"}/${data.id}`;
     // console.log(endpoint);
 
     let options = {
@@ -90,7 +91,7 @@ export const Cliente = () => {
 
     if (isDelete) {
       //creo variable para no entrar en conflicto con la url que tengo antes
-      let endpoint = `${url}/${id}`;
+      let endpoint = `${rootpath+"cliente/delete"}/${id}`;
       let options = {
         //este header es necesario por el json-server
         headers: { 'content-type': 'application-json' },
@@ -124,189 +125,6 @@ export const Cliente = () => {
           </nav>
         </div>
 
-        <div className="row">
-          <div className="col-12 grid-margin">
-            <div className="card">
-              <div className="card-body">
-                <h4 className="card-title">Consulta de Clientes</h4>
-                <form className="form-sample">
-                  <p className="card-description"></p>
-                  <div className="row">
-                    <div className="col-md-6">
-                      <div className="form-group row">
-                        <label className="col-sm-3 col-form-label">Nombre</label>
-                        <div className="col-sm-9">
-                          <input type="text" className="form-control" />
-                        </div>
-                      </div>
-                    </div>
-                    <div className="col-md-6">
-                      <div className="form-group row">
-                        <label className="col-sm-3 col-form-label">Apellidos</label>
-                        <div className="col-sm-9">
-                          <input type="text" className="form-control" />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className='row'>
-                    <div className="col-md-6">
-                      <div className="form-group row">
-                        <label className="col-sm-3 col-form-label">DNI</label>
-                        <div className="col-sm-9">
-                          <input type="text" className="form-control" />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className='row'>
-                    <div className='col-md-6'>
-                      <button type="submit" class="btn btn-primary mr-2">Buscar</button>
-                      <button class="btn btn-dark">Limpiar</button>
-                    </div>
-                  </div>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className='row'>
-          <div className="col-12 grid-margin">
-            <div className="card">
-              <div className="card-body">
-                <h4 className="card-title">
-                  <button type="button" class="btn btn-primary btn-sm">Nuevo</button>
-                </h4>
-                <p className="card-description">
-                </p>
-                <div className="table-responsive">
-                  <table className="table table-striped">
-                    <thead>
-                      <tr>
-                        <th> Usuario </th>
-                        <th> Nombres </th>
-                        <th> Apellidos </th>
-                        <th> DNI </th>
-                        <th> Email </th>
-                        <th> Estado </th>
-                        <th className='text-center'> Acciones </th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td className="py-1">
-                          <img src="../../assets/images/faces-clipart/pic-1.png" alt="image" />
-                        </td>
-                        <td> Herman Beck </td>
-                        <td> Cabrera Peña </td>
-                        <td> 11111111 </td>
-                        <td> hernan@gmail.com </td>
-                        <td> <label class="badge badge-danger">Eliminado</label> </td>
-                        <td className='text-center'>
-                          <button type="button" class="btn btn-primary btn-sm">Editar</button> &nbsp;
-                          <button type="button" class="btn btn-danger btn-sm">Eliminar</button>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td className="py-1">
-                          <img src="../../assets/images/faces-clipart/pic-2.png" alt="image" />
-                        </td>
-                        <td> Messsy Adam </td>
-                        <td> Perez Perez </td>
-                        <td> 22222222 </td>
-                        <td> hernan@gmail.com </td>
-                        <td> <label class="badge badge-success">Activo</label> </td>
-                        <td className='text-center'>
-                          <button type="button" class="btn btn-primary btn-sm">Editar</button> &nbsp;
-                          <button type="button" class="btn btn-danger btn-sm">Eliminar</button>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td className="py-1">
-                          <img src="../../assets/images/faces-clipart/pic-3.png" alt="image" />
-                        </td>
-                        <td> John Richards </td>
-                        <td> Lima Lima </td>
-                        <td> 33333333 </td>
-                        <td> hernan@gmail.com </td>
-                        <td> <label class="badge badge-success">Activo</label> </td>
-                        <td className='text-center'>
-                          <button type="button" class="btn btn-primary btn-sm">Editar</button> &nbsp;
-                          <button type="button" class="btn btn-danger btn-sm">Eliminar</button>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td className="py-1">
-                          <img src="../../assets/images/faces-clipart/pic-4.png" alt="image" />
-                        </td>
-                        <td> Peter Meggik </td>
-                        <td> Lima Lima </td>
-                        <td> 44444444 </td>
-                        <td> hernan@gmail.com </td>
-                        <td> <label class="badge badge-success">Activo</label> </td>
-                        <td className='text-center'>
-                          <button type="button" class="btn btn-primary btn-sm">Editar</button> &nbsp;
-                          <button type="button" class="btn btn-danger btn-sm">Eliminar</button>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td className="py-1">
-                          <img src="../../assets/images/faces-clipart/pic-1.png" alt="image" />
-                        </td>
-                        <td> Edward </td>
-                        <td> Lima Lima </td>
-                        <td> 55555555 </td>
-                        <td> hernan@gmail.com </td>
-                        <td> <label class="badge badge-success">Activo</label> </td>
-                        <td className='text-center'>
-                          <button type="button" class="btn btn-primary btn-sm">Editar</button> &nbsp;
-                          <button type="button" class="btn btn-danger btn-sm">Eliminar</button>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td className="py-1">
-                          <img src="../../assets/images/faces-clipart/pic-2.png" alt="image" />
-                        </td>
-                        <td> John Doe </td>
-                        <td> Lima Lima </td>
-                        <td> 66666666 </td>
-                        <td> hernan@gmail.com </td>
-                        <td> <label class="badge badge-success">Activo</label> </td>
-                        <td className='text-center'>
-                          <button type="button" class="btn btn-primary btn-sm">Editar</button> &nbsp;
-                          <button type="button" class="btn btn-danger btn-sm">Eliminar</button>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td className="py-1">
-                          <img src="../../assets/images/faces-clipart/pic-3.png" alt="image" />
-                        </td>
-                        <td> Henry Tom </td>
-                        <td> Lima Lima </td>
-                        <td> 77777777 </td>
-                        <td> hernan@gmail.com </td>
-                        <td> <label class="badge badge-success">Activo</label> </td>
-                        <td className='text-center'>
-                          <button type="button" class="btn btn-primary btn-sm">Editar</button> &nbsp;
-                          <button type="button" class="btn btn-danger btn-sm">Eliminar</button>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-
-      </div>
-
-    </>
-    /*{<div>
-      <h2>Crup CLIENTES</h2>
-      <article className="grid-1-2">
         <CrudForm
           createData={createData}
           updateData={updateData}
@@ -328,7 +146,10 @@ export const Cliente = () => {
             deleteData={deleteData}
           />
         )}
-      </article>
-    </div>}*/
+
+      </div>
+    
+    </>
+    
   );
 };
