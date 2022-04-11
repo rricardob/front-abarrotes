@@ -4,6 +4,7 @@ import CrudForm from './CrudFormCliente';
 import CrudTable from './CrudTableCliente';
 import Loader from './../../components/Loader';
 import Message from './../../components/Message';
+import swal from 'sweetalert';
 
 export const Cliente = () => {
   const [db, setDb] = useState(null);
@@ -19,7 +20,7 @@ export const Cliente = () => {
   useEffect(() => {
     setLoading(true);
     helpHttp()
-      .get(rootpath+url)
+      .get(rootpath + url)
       .then(res => {
         //console.log(res);
         if (!res.err) {
@@ -32,7 +33,7 @@ export const Cliente = () => {
 
         setLoading(false);
       });
-  }, [rootpath+url]);
+  }, [rootpath + url]);
 
   //CONFIGURANDO POST DE LA API
   const createData = data => {
@@ -45,13 +46,15 @@ export const Cliente = () => {
     };
 
     //configurando POST de la api
-    api.post(rootpath+"cliente/create", options).then(res => {
+    api.post(rootpath + "cliente/create", options).then(res => {
       console.log(res);
       if (!res.err) {
         //si no hay error actualiza la base de datos
         setDb([...db, res]);
+        swal("Genial!", "Cliente creado correctamente", "success");
       } else {
-        setError(res);
+        //setError(res);
+        swal("Oops!", "Ocurrio un error al intentar crear el cliente " + res, "error");
       }
     });
   };
@@ -59,7 +62,7 @@ export const Cliente = () => {
   //CONFIGURANDO UPDATE DE LA API
   const updateData = data => {
     //creo variable para no entrar en conflicto con la url que tengo antes
-    let endpoint = `${rootpath+"cliente/update"}/${data.id}`;
+    let endpoint = `${rootpath + "cliente/update"}/${data.cl_id}`;
     // console.log(endpoint);
 
     let options = {
@@ -67,48 +70,60 @@ export const Cliente = () => {
       //esta parte del header es por obligacion de json server
       headers: { 'content-type': 'application/json' },
     };
-
+    debugger
     //configurando PUT de la api
     api.put(endpoint, options).then(res => {
       // console.log(res);
       if (!res.err) {
-        let newData = db.map(el => (el.id === data.id ? data : el));
+        let newData = db.map(el => (el.id === data.cl_id ? data : el));
         //si no hay error actualiza la base de datos
         setDb(newData);
+        swal("Genial!", "La informacion del cliente se actualizo correctamente", "success");
       } else {
-        setError(res);
+        //setError(res);
+        swal("Oops!", "Ocurrio un error al intentar actualizar el cliente " + res, "error");
       }
     });
   };
 
   //configurando DELETE de la api
-  const deleteData = id => {
-    //creo variable para no entrar en conflicto con url principal
-    let url = `http://localhost:3000/cliente/delete/`;
-    let isDelete = window.confirm(
-      `¿Estás seguro de eliminar el registro con el id "${id}"?,`,
-    );
+  const deleteData = obj => {
+    /*let isDelete = window.confirm(
+      `¿Estás seguro de eliminar el cliente ${obj.cl_nombre} ${obj.cl_apellido} con el DNI ${obj.cl_dni}?,`,
+    );*/
 
-    if (isDelete) {
-      //creo variable para no entrar en conflicto con la url que tengo antes
-      let endpoint = `${rootpath+"cliente/delete"}/${id}`;
-      let options = {
-        //este header es necesario por el json-server
-        headers: { 'content-type': 'application-json' },
-      };
-      //configuramos la funcion DEL del fetch
-      api.del(endpoint, options).then(res => {
-        if (!res.err) {
-          //si no hay error actualiza la base de datos
-          let newData = db.filter(el => el.id !== id);
-          setDb(newData);
+    swal({
+      title: `¿Estás seguro de eliminar el cliente ${obj.cl_nombre} ${obj.cl_apellido} con el DNI ${obj.cl_dni}?`,
+      text: "",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+    })
+      .then((willDelete) => {
+        if (willDelete) {
+          //creo variable para no entrar en conflicto con la url que tengo antes
+          let endpoint = `${rootpath + "cliente/delete"}/${obj.cl_id}`;
+          let options = {
+            //este header es necesario por el json-server
+            headers: { 'content-type': 'application-json' },
+          };
+          //configuramos la funcion DEL del fetch
+          api.del(endpoint, options).then(res => {
+            if (!res.err) {
+              //si no hay error actualiza la base de datos
+              let newData = db.filter(el => el.id !== obj.cl_id);
+              setDb(newData);
+              swal("Genial!", "La informacion del cliente se elimino correctamente", "success");
+            } else {
+              //setError(res);
+              swal("Oops!", "Ocurrio un error al intentar eliminar el cliente " + res, "error");
+            }
+          });
         } else {
-          setError(res);
+          return;
         }
       });
-    } else {
-      return;
-    }
+
   };
 
   return (
@@ -148,8 +163,8 @@ export const Cliente = () => {
         )}
 
       </div>
-    
+
     </>
-    
+
   );
 };

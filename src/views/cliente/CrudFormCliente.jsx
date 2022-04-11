@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 
 const initialForm = {
-  cl_nombre: 'ai',
-  cl_apellido: 'ai',
-  cl_dni: 22,
-  cl_email: 'ab',
-  cl_telefono: '700',
-  cl_direccion: 'plp'
+  cl_id: null,
+  cl_nombre: '',
+  cl_apellido: '',
+  cl_dni: null,
+  cl_email: '',
+  cl_telefono: '',
+  cl_direccion: ''
 };
 
 const CrudForm = ({ createData, updateData, dataToEdit, setDataToEdit }) => {
@@ -29,7 +30,7 @@ const CrudForm = ({ createData, updateData, dataToEdit, setDataToEdit }) => {
 
   const handleSubmit = e => {
     e.preventDefault();
-
+    debugger
     if (
       !form.cl_nombre ||
       !form.cl_apellido ||
@@ -42,7 +43,7 @@ const CrudForm = ({ createData, updateData, dataToEdit, setDataToEdit }) => {
       return;
     }
 
-    if (form.id === null || form.id === undefined) {
+    if (form.cl_id === null || form.cl_id === undefined) {
       createData(form);
     } else {
       updateData(form);
@@ -72,10 +73,10 @@ const CrudForm = ({ createData, updateData, dataToEdit, setDataToEdit }) => {
                     <div className="col-sm-9">
                       <input
                         type="text"
-                        name="nombre"
+                        name="cl_nombre"
                         placeholder="Nombre"
                         onChange={handleChange}
-                        value={form.cl_nombre}
+                        defaultValue={form.cl_nombre}
                         className="form-control" />
                     </div>
                   </div>
@@ -86,10 +87,10 @@ const CrudForm = ({ createData, updateData, dataToEdit, setDataToEdit }) => {
                     <div className="col-sm-9">
                       <input
                         type="text"
-                        name="apellido"
+                        name="cl_apellido"
                         placeholder="Apellido"
                         onChange={handleChange}
-                        value={form.cl_apellido}
+                        defaultValue={form.cl_apellido}
                         className="form-control" />
                     </div>
                   </div>
@@ -102,10 +103,10 @@ const CrudForm = ({ createData, updateData, dataToEdit, setDataToEdit }) => {
                     <div className="col-sm-9">
                       <input
                         type="number"
-                        name="dni"
+                        name="cl_dni"
                         placeholder="DNI"
                         onChange={handleChange}
-                        value={form.cl_dni}
+                        defaultValue={form.cl_dni}
                         className="form-control" />
                     </div>
                   </div>
@@ -116,10 +117,10 @@ const CrudForm = ({ createData, updateData, dataToEdit, setDataToEdit }) => {
                     <div className="col-sm-9">
                       <input
                         type="text"
-                        name="email"
+                        name="cl_email"
                         placeholder="E-MAIL"
                         onChange={handleChange}
-                        value={form.cl_email}
+                        defaultValue={form.cl_email}
                         className="form-control" />
                     </div>
                   </div>
@@ -130,10 +131,10 @@ const CrudForm = ({ createData, updateData, dataToEdit, setDataToEdit }) => {
                     <div className="col-sm-9">
                       <input
                         type="number"
-                        name="telefono"
+                        name="cl_telefono"
                         placeholder="TELEFONO"
                         onChange={handleChange}
-                        value={form.cl_telefono}
+                        defaultValue={form.cl_telefono}
                         className="form-control" />
                     </div>
                   </div>
@@ -144,10 +145,10 @@ const CrudForm = ({ createData, updateData, dataToEdit, setDataToEdit }) => {
                     <div className="col-sm-9">
                       <input
                         type="text"
-                        name="telefono"
+                        name="cl_direccion"
                         placeholder="DIRECCION"
                         onChange={handleChange}
-                        value={form.cl_direccion}
+                        defaultValue={form.cl_direccion}
                         className="form-control" />
                     </div>
                   </div>

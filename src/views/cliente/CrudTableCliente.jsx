@@ -9,7 +9,7 @@ const CrudTable = ({ data, setDataToEdit, deleteData }) => {
         <div className="card">
           <div className="card-body">
             <h4 className="card-title">
-              <button type="button" className="btn btn-primary btn-sm">Nuevo</button>
+              
             </h4>
             <p className="card-description">
             </p>
@@ -21,6 +21,7 @@ const CrudTable = ({ data, setDataToEdit, deleteData }) => {
                     <th className='text-center'> Apellidos </th>
                     <th className='text-center'> DNI </th>
                     <th className='text-center'> Direccion </th>
+                    <th className='text-center'> Telefono </th>
                     <th className='text-center'> Email </th>
                     <th className='text-center'> Estado </th>
                     <th className='text-center'> Acciones </th>

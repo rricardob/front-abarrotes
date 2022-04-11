@@ -25,7 +25,7 @@ export const Aside = () => {
                 <span className="count bg-success" />
               </div>
               <div className="profile-name">
-                <h5 className="mb-0 font-weight-normal">Fernando Tello</h5>
+                <h5 className="mb-0 font-weight-normal">Fernando Tello Gonca</h5>
                 <span>Gold Member</span>
               </div>
             </div>
@@ -127,93 +127,36 @@ export const Aside = () => {
             <span className="menu-title">Vendedor</span>
           </a>
         </Link>
+        <Link to="/producto" className="nav-item menu-items">
         <li className="nav-item menu-items">
           <a className="nav-link" href="pages/tables/basic-table.html">
             <span className="menu-icon">
               <i className="mdi mdi-table-large" />
             </span>
-            <span className="menu-title">Tables</span>
+            <span className="menu-title">Producto</span>
           </a>
         </li>
+        </Link>
+        <Link to="/categoria" className="nav-item menu-items">
         <li className="nav-item menu-items">
           <a className="nav-link" href="pages/charts/chartjs.html">
             <span className="menu-icon">
               <i className="mdi mdi-chart-bar" />
             </span>
-            <span className="menu-title">Charts</span>
+            <span className="menu-title">Categoria</span>
           </a>
         </li>
+        </Link>
+        <Link to="/Comprobante" className="nav-item menu-items">
         <li className="nav-item menu-items">
           <a className="nav-link" href="pages/icons/mdi.html">
             <span className="menu-icon">
               <i className="mdi mdi-contacts" />
             </span>
-            <span className="menu-title">Icons</span>
+            <span className="menu-title">Comprobante</span>
           </a>
         </li>
-        <li className="nav-item menu-items">
-          <a
-            className="nav-link"
-            data-toggle="collapse"
-            href="#auth"
-            aria-expanded="false"
-            aria-controls="auth">
-            <span className="menu-icon">
-              <i className="mdi mdi-security" />
-            </span>
-            <span className="menu-title">User Pages</span>
-            <i className="menu-arrow" />
-          </a>
-          <div className="collapse" id="auth">
-            <ul className="nav flex-column sub-menu">
-              <li className="nav-item">
-                {' '}
-                <a className="nav-link" href="pages/samples/blank-page.html">
-                  {' '}
-                  Blank Page{' '}
-                </a>
-              </li>
-              <li className="nav-item">
-                {' '}
-                <a className="nav-link" href="pages/samples/error-404.html">
-                  {' '}
-                  404{' '}
-                </a>
-              </li>
-              <li className="nav-item">
-                {' '}
-                <a className="nav-link" href="pages/samples/error-500.html">
-                  {' '}
-                  500{' '}
-                </a>
-              </li>
-              <li className="nav-item">
-                {' '}
-                <a className="nav-link" href="pages/samples/login.html">
-                  {' '}
-                  Login{' '}
-                </a>
-              </li>
-              <li className="nav-item">
-                {' '}
-                <a className="nav-link" href="pages/samples/register.html">
-                  {' '}
-                  Register{' '}
-                </a>
-              </li>
-            </ul>
-          </div>
-        </li>
-        <li className="nav-item menu-items">
-          <a
-            className="nav-link"
-            href="http://www.bootstrapdash.com/demo/corona-free/jquery/documentation/documentation.html">
-            <span className="menu-icon">
-              <i className="mdi mdi-file-document-box" />
-            </span>
-            <span className="menu-title">Documentation</span>
-          </a>
-        </li>
+      </Link>
       </ul>
     </nav>
   );

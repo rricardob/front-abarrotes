@@ -5,6 +5,9 @@ import { Login } from './views/login/Login';
 import { Content } from './views/content/Content';
 import { Vendedor } from './views/vendedor/Vendedor';
 import { Cliente } from './views/cliente/Cliente';
+import { Producto } from './views/producto/Producto';
+import { Categoria } from './views/categoria/Categoria';
+import { Comprobante } from './views/comprobante/Comprobante';
 
 function App() {
   return (
@@ -23,7 +26,18 @@ function App() {
           <Route index element={<Cliente />} />
         </Route>
 
-        {/* <Route path="vendedor" element={<Dashboard />} /> */}
+        <Route path="/producto" element={<Dashboard />}>
+          <Route index element={<Producto />} />
+        </Route>
+
+        <Route path='/categoria' element={<Dashboard />}>
+          <Route index element={<Categoria />} />
+        </Route>
+
+        <Route path='/comprobante' element={<Dashboard />}>
+          <Route index element={<Comprobante />} />
+        </Route>
+
       </Routes>
     </BrowserRouter>
   );
