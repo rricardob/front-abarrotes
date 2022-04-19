@@ -70,7 +70,7 @@ export const Cliente = () => {
       //esta parte del header es por obligacion de json server
       headers: { 'content-type': 'application/json' },
     };
-    debugger
+    
     //configurando PUT de la api
     api.put(endpoint, options).then(res => {
       // console.log(res);

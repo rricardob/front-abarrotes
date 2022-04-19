@@ -30,7 +30,7 @@ const CrudForm = ({ createData, updateData, dataToEdit, setDataToEdit }) => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    debugger
+    
     if (
       !form.cl_nombre ||
       !form.cl_apellido ||
