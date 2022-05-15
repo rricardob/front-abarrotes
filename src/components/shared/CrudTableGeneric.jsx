@@ -1,4 +1,5 @@
 import React from 'react';
+import CrudTableRow from '../../views/producto/CrudTableRowProducto';
 
 const CrudTableGeneric = ({ data, setDataToEdit, deleteData, colNames }) => {
 
@@ -25,7 +26,20 @@ const CrudTableGeneric = ({ data, setDataToEdit, deleteData, colNames }) => {
                   </tr>
                 </thead>
                 <tbody>
-                 
+                  {data.length > 0 ? (
+                    data.map(el => (
+                      <CrudTableRow
+                        key={el.id}
+                        el={el}
+                        setDataToEdit={setDataToEdit}
+                        deleteData={deleteData}
+                      />
+                    ))
+                  ) : (
+                    <tr>
+                      <td colSpan="8">Sin datos</td>
+                    </tr>
+                  )}
                 </tbody>
               </table>
             </div>
