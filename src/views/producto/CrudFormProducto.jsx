@@ -1,7 +1,10 @@
 import { type } from '@testing-library/user-event/dist/type';
+import ColumnGroup from 'antd/lib/table/ColumnGroup';
 import React, { useState, useEffect } from 'react';
 import AsyncSelect from 'react-select/async';
 import { helpHttp } from '../../helpers/helpHttp.js'
+import swal from 'sweetalert';
+import styles from './productostyles.module.css'
 
 const initialForm = {
     pr_id: null,
@@ -45,7 +48,11 @@ const CrudForm = ({ createData, updateData, dataToEdit, setDataToEdit, category 
 
     // handle selection
     const handleChangeC = value => {
-        setSelectedValue(value);
+        setSelectedValue(value);        
+        setform({
+            ...form,
+            ca_id: value.ca_id,
+        });
     }
 
     const fetchData = () => {
@@ -72,7 +79,7 @@ const CrudForm = ({ createData, updateData, dataToEdit, setDataToEdit, category 
             !form.pr_stock ||
             !form.ca_id
         ) {
-            alert('Datos incompletos');
+            swal("Oops!", "datos incompletos ", "info");
             return;
         }
 
@@ -149,6 +156,7 @@ const CrudForm = ({ createData, updateData, dataToEdit, setDataToEdit, category 
                                         <label className="col-sm-3 col-form-label">Categoría</label>
                                         <div className="col-sm-9">
                                             <AsyncSelect
+                                                className={styles.select}
                                                 cacheOptions
                                                 defaultOptions
                                                 value={selectedValue}
