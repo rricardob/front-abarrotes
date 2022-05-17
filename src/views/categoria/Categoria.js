@@ -38,7 +38,6 @@ export const Categoria = () => {
   //CONFIGURANDO POST DE LA API
   const createData = data => {
     // data.id = Date.now();
-
     let options = {
       body: data,
       //esta parte del header es por obligacion de json server
@@ -67,6 +66,7 @@ export const Categoria = () => {
   const updateData = data => {
     //creo variable para no entrar en conflicto con la url que tengo antes
     let endpoint = `${rootpath + 'categoria/update'}/${data.ca_id}`;
+    console.log(data);
     // console.log(endpoint);
 
     let options = {
@@ -79,7 +79,9 @@ export const Categoria = () => {
     api.put(endpoint, options).then(res => {
       // console.log(res);
       if (!res.err) {
-        let newData = db.map(el => (el.id === data.cl_id ? data : el));
+        let newData = db.map(el => (el.ca_id === data.ca_id ? data : el));
+
+        console.log(newData);
         //si no hay error actualiza la base de datos
         setDb(newData);
         swal(
@@ -122,7 +124,7 @@ export const Categoria = () => {
         api.del(endpoint, options).then(res => {
           if (!res.err) {
             //si no hay error actualiza la base de datos
-            let newData = db.filter(el => el.id !== obj.ca_id);
+            let newData = db.filter(el => el.ca_id !== obj.ca_id);
             setDb(newData);
             swal(
               'Genial!',

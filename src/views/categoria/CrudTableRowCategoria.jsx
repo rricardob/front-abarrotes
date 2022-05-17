@@ -1,7 +1,8 @@
 import React from 'react';
 
 const CrudTableRow = ({ el, setDataToEdit, deleteData }) => {
-  let { ca_nombre, ca_id, eliminado } = el;
+  // let { ca_nombre, ca_id, eliminado } = el;
+  let { ca_nombre, eliminado } = el;
   let stateClass =
     eliminado === 0 ? 'badge badge-success' : 'badge badge-danger';
 
