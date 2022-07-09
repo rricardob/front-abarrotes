@@ -76,7 +76,7 @@ export const Vendedor = () => {
     api.put(endpoint, options).then(res => {
       // console.log(res);
       if (!res.err) {
-        let newData = db.map(el => (el.id === data.ve_id ? data : el));
+        let newData = db.map(el => (el.ve_id === data.ve_id ? data : el));
         //si no hay error actualiza la base de datos
         setDb(newData);
         swal("Genial!", "La informacion del vendedor se actualizo correctamente", "success");

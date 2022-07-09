@@ -20,6 +20,7 @@ const CrudForm = ({ createData, updateData, dataToEdit, setDataToEdit, category 
     const [form, setform] = useState(initialForm);
     const [selectedValue, setSelectedValue] = useState(null);
     let isCategoriesLoad = false;
+    const [categoriesLoad, setCategoriesLoad] = useState(null);
 
     useEffect(() => {
         if (dataToEdit) {
