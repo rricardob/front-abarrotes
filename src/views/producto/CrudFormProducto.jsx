@@ -1,10 +1,11 @@
 import { type } from '@testing-library/user-event/dist/type';
 import ColumnGroup from 'antd/lib/table/ColumnGroup';
 import React, { useState, useEffect } from 'react';
-import AsyncSelect from 'react-select/async';
+//import AsyncSelect from 'react-select/async';
 import { helpHttp } from '../../helpers/helpHttp.js'
 import swal from 'sweetalert';
 import styles from './productostyles.module.css'
+import { Select } from 'antd'
 
 const initialForm = {
     pr_id: null,
@@ -156,16 +157,25 @@ const CrudForm = ({ createData, updateData, dataToEdit, setDataToEdit, category 
                                     <div className="form-group row">
                                         <label className="col-sm-3 col-form-label">Categoría</label>
                                         <div className="col-sm-9">
-                                            <AsyncSelect
-                                                className={styles.select}
+                                            <Select
+                                                name="category"
+                                                showArrow={true}
+                                                allowClear={true}
+                                                style={{ width: "100%"}}
+                                                disabled= {false}
+                                                showSearch
+
+                                                /*className={styles.select}
                                                 cacheOptions
                                                 defaultOptions
                                                 value={selectedValue}
                                                 getOptionLabel={e => e.ca_nombre}
                                                 getOptionValue={e => e.ca_id}
                                                 loadOptions={fetchData}
-                                                onChange={handleChangeC}
-                                            />
+                                                onChange={handleChangeC}*/
+                                            >
+                                                
+                                            </Select>
                                         </div>
                                     </div>
                                 </div>
