@@ -3,8 +3,6 @@ import CrudTableRow from '../../views/producto/CrudTableRowProducto';
 
 const CrudTableGeneric = ({ data, setDataToEdit, deleteData, colNames }) => {
 
-  console.log("colNames",colNames())
-
   return (
 
     <div className='row'>

@@ -21,32 +21,37 @@ const CrudForm = ({ createData, updateData, dataToEdit, setDataToEdit, category 
     const [form, setform] = useState(initialForm);
     const [selectedValue, setSelectedValue] = useState(null);
     let isCategoriesLoad = false;
-    const [categoriesLoad, setCategoriesLoad] = useState(null);
+    const [categoriesLoad, setCategoriesLoad] = useState([]);
 
     useEffect(() => {
         if (dataToEdit) {
             setform(dataToEdit);
         } else {
             setform(initialForm);
+            fetchData()
+            genCategories()
         }
     }, [dataToEdit]);
 
     //useEffect necesario para efecto secundario cuando renderiza la web cargando los datos del servicio
-    useEffect(() => {
+    /*useEffect(() => {
         if (category) {
             //listCategories()
             isCategoriesLoad = true;
         } else {
             isCategoriesLoad = false;
         }
-    }, [category])
+    }, [category])*/
 
+    /*useEffect(() => {
+        fetchData()
+    }, [])*/
 
-    const listCategories = () => {
+    /*const listCategories = () => {
         category.map((option) => (
             <option value={option.ca_id}>{option.ca_nombre}</option>
         ))
-    }
+    }*/
 
     // handle selection
     const handleChangeC = value => {
@@ -58,11 +63,14 @@ const CrudForm = ({ createData, updateData, dataToEdit, setDataToEdit, category 
     }
 
     const fetchData = () => {
-        return helpHttp()
+        console.log("fetchData -> ")
+        helpHttp()
             .get(rootpath + 'categoria/findAll')
-            .then(res => {
-                return res;
-            });
+            .then(res => {   
+                console.log(res)              
+                setCategoriesLoad({ res }) 
+                console.log("categories -> ", categoriesLoad)
+        });
     }
 
     const handleChange = e => {
@@ -99,9 +107,54 @@ const CrudForm = ({ createData, updateData, dataToEdit, setDataToEdit, category 
         setDataToEdit(null);
     };
 
-    return (
+    const genCategories = () => {
+        const options = [];
+        //Comprobamos si el usuario tiene agencias
+        /*if (
+          this.state.detailLoggedUser.agencies != null &&
+          this.state.detailLoggedUser.agencies.length > 0
+        ) {
+          //Como sí tiene, las recorremos
+          this.state.detailLoggedUser.agencies.map((agency) =>
+            //Añadimos a la lista de opciones una opción basada en la agencia
+            options.push(
+              <Option key={agency.codAgency} value={agency.codAgency}>
+                {agency.descAgency}
+              </Option>
+            )
+          );
+          //Comprobamos si el usuario es externo
+          if (isUserExtern() && this.state.selectedAgent === "") {
+            //Como es externo, llamamos a la función de cambio de agente
+              this.handleChangeAgente(
+               this.state.detailLoggedUser.agencies[0].codAgency, this.state.detailLoggedUser.agencies[0].descAgency
+              );
+          }
+        }*/
+        console.log("categories -> ", categoriesLoad);
+        categoriesLoad.forEach(element => {
+            console.log("element -> ", element);
+        });
+        /*categoriesLoad.map((category) =>
+            console.log("category -> ", category)
+            options.push(
+                <Option key={agency.codAgency} value={agency.codAgency}>
+                {agency.descAgency}
+                </Option>
+          )
+        );*/
+        return options;
+      };   
 
-        <div className="row">
+      /*const eje = categoriesLoad.map((data) => {
+        return <div>
+            <h2>data.ca_nombre</h2>
+        </div>
+      })*/
+
+    return (        
+        
+        <div className="row">            
             <div className="col-12 grid-margin">
                 <div className="card">
                     <div className="card-body">
@@ -191,6 +244,7 @@ const CrudForm = ({ createData, updateData, dataToEdit, setDataToEdit, category 
                 </div>
             </div>
         </div>
+        
     );
 };
 

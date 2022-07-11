@@ -40,7 +40,7 @@ export function Producto() {
   }, [rootpath + url]);
 
   //RECUPERAR DATA DE LAS CATEGORIAS
-  useEffect(() => {
+  /*useEffect(() => {
     helpHttp()
       .get(rootpath + 'categoria/findAll')
       .then(res => {
@@ -51,7 +51,7 @@ export function Producto() {
           console.log("Error al recuperar las categorias")
         }
       });
-  }, []);
+  }, []);*/
 
   //CONFIGURANDO POST DE LA API
   const createData = data => {
