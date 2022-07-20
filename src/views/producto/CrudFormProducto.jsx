@@ -10,7 +10,7 @@ const initialForm = {
     pr_stock: 0,
     ca_id: null
 };
-
+//
 const rootpath = 'http://localhost:3000/';
 
 const CrudForm = ({ createData, updateData, dataToEdit, setDataToEdit, category = [] }) => {
