@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { helpHttp } from '../../helpers/helpHttp.js'
 import swal from 'sweetalert';
 import { Select } from 'antd'
+import { PATH, CATEGORY } from '../config/index'
 
 const initialForm = {
     pr_id: null,
@@ -11,7 +12,7 @@ const initialForm = {
     ca_id: null
 };
 //
-const rootpath = 'http://localhost:3000/';
+const rootpath = PATH;
 
 const CrudForm = ({ createData, updateData, dataToEdit, setDataToEdit, category = [] }) => {
     const { Option } = Select 
@@ -40,7 +41,7 @@ const CrudForm = ({ createData, updateData, dataToEdit, setDataToEdit, category 
 
     const fetchData = async () => {
        await helpHttp()
-            .get(rootpath + 'categoria/findAll')
+            .get(rootpath + CATEGORY.GET)
             .then(res => {               
                 setCategoriesLoad(res) 
         });

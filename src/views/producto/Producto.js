@@ -6,6 +6,7 @@ import Message from './../../components/Message';
 import swal from 'sweetalert';
 import {getColumnsProducts} from '../../utils/constants'
 import CrudTableGeneric from '../../components/shared/CrudTableGeneric';
+import { PRODUCT, PATH } from '../config/index'
 
 export function Producto() {
 
@@ -17,8 +18,8 @@ export function Producto() {
 
 
   let api = helpHttp();
-  let url = 'producto/findAll';
-  let rootpath = 'http://localhost:3000/';
+  let url = PRODUCT.GET;
+  let rootpath = PATH;
 
   //useEffect creada para que la pagina inicie con los datos de nuestro api, PARA QUE LOS DATOS APAREZCAN EN LA TABLA AL PRINCIPIO
   useEffect(() => {
@@ -64,7 +65,7 @@ export function Producto() {
     };
 
     //configurando POST de la api
-    api.post(rootpath + "producto/create", options).then(res => {
+    api.post(rootpath + PRODUCT.CREATE, options).then(res => {
       console.log(res);
       if (!res.err) {
         //si no hay error actualiza la base de datos
@@ -80,7 +81,7 @@ export function Producto() {
   //CONFIGURANDO UPDATE DE LA API
   const updateData = data => {
     //creo variable para no entrar en conflicto con la url que tengo antes
-    let endpoint = `${rootpath + "producto/update"}/${data.pr_id}`;
+    let endpoint = `${rootpath + PRODUCT.UPDATE}/${data.pr_id}`;
     // console.log(endpoint);
 
     let options = {
@@ -120,7 +121,7 @@ export function Producto() {
       .then((willDelete) => {
         if (willDelete) {
           //creo variable para no entrar en conflicto con la url que tengo antes
-          let endpoint = `${rootpath + "producto/delete"}/${obj.pr_id}`;
+          let endpoint = `${rootpath + PRODUCT.DELETE}/${obj.pr_id}`;
           let options = {
             //este header es necesario por el json-server
             headers: { 'content-type': 'application-json' },
