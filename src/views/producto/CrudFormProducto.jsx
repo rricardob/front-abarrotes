@@ -94,10 +94,10 @@ const CrudForm = ({ createData, updateData, dataToEdit, setDataToEdit, category 
       }; 
  
       const handleChangeCategory = (value) => {        
-        /*setform({
+        setform({
             ...form,
             ca_id: value.target.value,
-        });*/
+        });
         setSelectedValue(value.target.value)                    
       };            
 
@@ -183,7 +183,8 @@ const CrudForm = ({ createData, updateData, dataToEdit, setDataToEdit, category 
                                             <select
                                             className="form-control"                                            
                                             onChange={handleChangeCategory}                                       
-                                            >                                                
+                                            >                      
+                                            <option>Seleccione un valor</option>                          
                                                 {genCategories()}
                                             </select>
                                         </div>

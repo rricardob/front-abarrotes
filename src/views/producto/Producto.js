@@ -66,7 +66,7 @@ export function Producto() {
 
     //configurando POST de la api
     api.post(rootpath + PRODUCT.CREATE, options).then(res => {
-      console.log(res);
+      //console.log(res);
       if (!res.err) {
         //si no hay error actualiza la base de datos
         setDb([...db, res]);
