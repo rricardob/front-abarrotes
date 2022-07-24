@@ -40,20 +40,6 @@ export function Producto() {
       });
   }, [rootpath + url]);
 
-  //RECUPERAR DATA DE LAS CATEGORIAS
-  /*useEffect(() => {
-    helpHttp()
-      .get(rootpath + 'categoria/findAll')
-      .then(res => {
-        if (!res.err) {
-          setCategory(res)
-        } else {
-          setCategory(null)
-          console.log("Error al recuperar las categorias")
-        }
-      });
-  }, []);*/
-
   //CONFIGURANDO POST DE LA API
   const createData = data => {
     // data.id = Date.now();

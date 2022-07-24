@@ -23,11 +23,11 @@ const CrudForm = ({ createData, updateData, dataToEdit, setDataToEdit, category 
     useEffect(() => {
         if (dataToEdit) {
             setform(dataToEdit);
-            setSelectedValue(dataToEdit.ca_id)  
+            //setSelectedValue(dataToEdit.ca_id)  
         } else {
             setform(initialForm);
             fetchData()
-            genCategories()
+            //genCategories()
         }
     }, [dataToEdit]);  
 
@@ -84,7 +84,7 @@ const CrudForm = ({ createData, updateData, dataToEdit, setDataToEdit, category 
             !form.pr_nombre ||
             !form.pr_precio ||
             !form.pr_stock ||
-            !selectedValue
+            !form.ca_id
         ) {
             swal("Oops!", "datos incompletos ", "info");
             return;
@@ -117,11 +117,12 @@ const CrudForm = ({ createData, updateData, dataToEdit, setDataToEdit, category 
       }; 
  
       const handleChangeCategory = (value) => {        
+
         setform({
             ...form,
             ca_id: value.target.value,
         });
-        setSelectedValue(value.target.value)                    
+        //setSelectedValue(value.target.value)                    
       };            
 
     return (        
@@ -183,9 +184,11 @@ const CrudForm = ({ createData, updateData, dataToEdit, setDataToEdit, category 
                                         <label className="col-sm-3 col-form-label">Categoría</label>
                                         <div className="col-sm-9">
                                             <select
-                                            className="form-control"                                            
-                                            onChange={handleChangeCategory} 
-                                            value={selectedValue}                                      
+                                            className="form-control"  
+                                            name='ca_id'                                          
+                                            onChange={handleChange} 
+                                            defaultValue={form.ca_id}   
+                                            value={form.ca_id}                                
                                             >                      
                                             <option>Seleccione un valor</option>                          
                                                 {genCategories()}
