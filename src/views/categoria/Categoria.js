@@ -5,6 +5,7 @@ import CrudTable from './CrudTableCategoria';
 import Loader from './../../components/Loader';
 import Message from './../../components/Message';
 import swal from 'sweetalert';
+import { CATEGORY, PATH } from '../config/index'
 
 export const Categoria = () => {
   const [db, setDb] = useState(null);
@@ -13,8 +14,8 @@ export const Categoria = () => {
   const [loading, setLoading] = useState(false);
 
   let api = helpHttp();
-  let url = 'categoria/findAll';
-  let rootpath = 'http://localhost:3000/';
+  let url = CATEGORY.GET;
+  let rootpath = PATH;
 
   //useEffect creada para que la pagina inicie con los datos de nuestro api, PARA QUE LOS DATOS APAREZCAN EN LA TABLA AL PRINCIPIO
   useEffect(() => {
@@ -45,7 +46,7 @@ export const Categoria = () => {
     };
 
     //configurando POST de la api
-    api.post(rootpath + 'categoria/create', options).then(res => {
+    api.post(rootpath + CATEGORY.CREATE, options).then(res => {
       console.log(res);
       if (!res.err) {
         //si no hay error actualiza la base de datos
@@ -65,7 +66,7 @@ export const Categoria = () => {
   //CONFIGURANDO UPDATE DE LA API
   const updateData = data => {
     //creo variable para no entrar en conflicto con la url que tengo antes
-    let endpoint = `${rootpath + 'categoria/update'}/${data.ca_id}`;
+    let endpoint = `${rootpath + CATEGORY.UPDATE}/${data.ca_id}`;
     console.log(data);
     // console.log(endpoint);
 
@@ -115,7 +116,7 @@ export const Categoria = () => {
     }).then(willDelete => {
       if (willDelete) {
         //creo variable para no entrar en conflicto con la url que tengo antes
-        let endpoint = `${rootpath + 'categoria/delete'}/${obj.ca_id}`;
+        let endpoint = `${rootpath + CATEGORY.DELETE}/${obj.ca_id}`;
         let options = {
           //este header es necesario por el json-server
           headers: { 'content-type': 'application-json' },

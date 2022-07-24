@@ -1,55 +1,38 @@
-import { type } from '@testing-library/user-event/dist/type';
-import ColumnGroup from 'antd/lib/table/ColumnGroup';
 import React, { useState, useEffect } from 'react';
-//import AsyncSelect from 'react-select/async';
 import { helpHttp } from '../../helpers/helpHttp.js'
 import swal from 'sweetalert';
-import styles from './productostyles.module.css'
 import { Select } from 'antd'
+import { PATH, CATEGORY } from '../config/index'
 
 const initialForm = {
     pr_id: null,
     pr_nombre: '',
-    pr_precio: 0,
-    pr_stock: 0,
+    pr_precio: '',
+    pr_stock: '',
     ca_id: null
 };
-
-const rootpath = 'http://localhost:3000/';
+//
+const rootpath = PATH;
 
 const CrudForm = ({ createData, updateData, dataToEdit, setDataToEdit, category = [] }) => {
+    const { Option } = Select 
     const [form, setform] = useState(initialForm);
-    const [selectedValue, setSelectedValue] = useState(null);
-    let isCategoriesLoad = false;
-    const [categoriesLoad, setCategoriesLoad] = useState(null);
+    const [selectedValue, setSelectedValue] = useState(null);    
+    const [categoriesLoad, setCategoriesLoad] = useState([]);
 
     useEffect(() => {
         if (dataToEdit) {
             setform(dataToEdit);
+            setSelectedValue(dataToEdit.ca_id)  
         } else {
             setform(initialForm);
+            fetchData()
+            genCategories()
         }
-    }, [dataToEdit]);
-
-    //useEffect necesario para efecto secundario cuando renderiza la web cargando los datos del servicio
-    useEffect(() => {
-        if (category) {
-            //listCategories()
-            isCategoriesLoad = true;
-        } else {
-            isCategoriesLoad = false;
-        }
-    }, [category])
-
-
-    const listCategories = () => {
-        category.map((option) => (
-            <option value={option.ca_id}>{option.ca_nombre}</option>
-        ))
-    }
+    }, [dataToEdit]);  
 
     // handle selection
-    const handleChangeC = value => {
+    const handleChangeCategory2 = value => {
         setSelectedValue(value);        
         setform({
             ...form,
@@ -57,12 +40,34 @@ const CrudForm = ({ createData, updateData, dataToEdit, setDataToEdit, category 
         });
     }
 
-    const fetchData = () => {
-        return helpHttp()
-            .get(rootpath + 'categoria/findAll')
-            .then(res => {
-                return res;
-            });
+    const setCategory = (item) => {
+        setform({
+            ...form,
+            ca_id: item,
+        });
+    }
+
+    const findCategoryById = (id) => {
+        if(categoriesLoad !== null && categoriesLoad !== undefined && categoriesLoad.length > 0){
+            const filter = categoriesLoad.filter(item => {
+                return item.ca_id === id
+            })
+
+            categoriesLoad.forEach( item => {
+                if(item.ca_id === id){
+
+                }
+            })
+
+        }
+    }
+
+    const fetchData = async () => {
+       await helpHttp()
+            .get(rootpath + CATEGORY.GET)
+            .then(res => {               
+                setCategoriesLoad(res) 
+        });
     }
 
     const handleChange = e => {
@@ -79,7 +84,7 @@ const CrudForm = ({ createData, updateData, dataToEdit, setDataToEdit, category 
             !form.pr_nombre ||
             !form.pr_precio ||
             !form.pr_stock ||
-            !form.ca_id
+            !selectedValue
         ) {
             swal("Oops!", "datos incompletos ", "info");
             return;
@@ -99,16 +104,36 @@ const CrudForm = ({ createData, updateData, dataToEdit, setDataToEdit, category 
         setDataToEdit(null);
     };
 
-    return (
+    const genCategories = () => {
+        const options = [];           
+        categoriesLoad.map((category) =>            
+            options.push(
+                <option key={category.ca_id} value={category.ca_id}>
+                {category.ca_nombre}
+                </option>
+          )
+        );
+        return options;
+      }; 
+ 
+      const handleChangeCategory = (value) => {        
+        setform({
+            ...form,
+            ca_id: value.target.value,
+        });
+        setSelectedValue(value.target.value)                    
+      };            
 
-        <div className="row">
+    return (        
+        
+        <div className="row">             
             <div className="col-12 grid-margin">
                 <div className="card">
                     <div className="card-body">
                         <h3>{dataToEdit ? 'Editar Producto' : 'Agregar Producto'}</h3>
                         <form className="form-sample" onSubmit={handleSubmit}>
                             <p className="card-description"></p>
-                            <div className="row">
+                            <div className="row">                            
                                 <div className="col-md-6">
                                     <div className="form-group row">
                                         <label className="col-sm-3 col-form-label">Nombre</label>
@@ -128,7 +153,7 @@ const CrudForm = ({ createData, updateData, dataToEdit, setDataToEdit, category 
                                         <label className="col-sm-3 col-form-label">Precio</label>
                                         <div className="col-sm-9">
                                             <input
-                                                type="number"
+                                                type="text"
                                                 name="pr_precio"
                                                 placeholder="Precio"
                                                 onChange={handleChange}
@@ -144,38 +169,27 @@ const CrudForm = ({ createData, updateData, dataToEdit, setDataToEdit, category 
                                         <label className="col-sm-3 col-form-label">Stock</label>
                                         <div className="col-sm-9">
                                             <input
-                                                type="number"
+                                                type="text"
                                                 name="pr_stock"
                                                 placeholder="Stock"
                                                 onChange={handleChange}
                                                 defaultValue={form.pr_stock}
                                                 className="form-control" />
-                                        </div>
+                                        </div>                                        
                                     </div>
                                 </div>
                                 <div className="col-md-6">
                                     <div className="form-group row">
                                         <label className="col-sm-3 col-form-label">Categoría</label>
                                         <div className="col-sm-9">
-                                            <Select
-                                                name="category"
-                                                showArrow={true}
-                                                allowClear={true}
-                                                style={{ width: "100%"}}
-                                                disabled= {false}
-                                                showSearch
-
-                                                /*className={styles.select}
-                                                cacheOptions
-                                                defaultOptions
-                                                value={selectedValue}
-                                                getOptionLabel={e => e.ca_nombre}
-                                                getOptionValue={e => e.ca_id}
-                                                loadOptions={fetchData}
-                                                onChange={handleChangeC}*/
-                                            >
-                                                
-                                            </Select>
+                                            <select
+                                            className="form-control"                                            
+                                            onChange={handleChangeCategory} 
+                                            value={selectedValue}                                      
+                                            >                      
+                                            <option>Seleccione un valor</option>                          
+                                                {genCategories()}
+                                            </select>
                                         </div>
                                     </div>
                                 </div>
@@ -191,6 +205,7 @@ const CrudForm = ({ createData, updateData, dataToEdit, setDataToEdit, category 
                 </div>
             </div>
         </div>
+        
     );
 };
 

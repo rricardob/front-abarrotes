@@ -5,6 +5,7 @@ import CrudTable from './CrudTableVendedor';
 import Loader from './../../components/Loader';
 import Message from './../../components/Message';
 import swal from 'sweetalert';
+import { PATH, VENDEDOR } from '../config/index'
 
 export const Vendedor = () => {
 
@@ -14,8 +15,8 @@ export const Vendedor = () => {
   const [loading, setLoading] = useState(false);
 
   let api = helpHttp();
-  let url = 'vendedor/findAll';
-  let rootpath = 'http://localhost:3000/';
+  let url = VENDEDOR.GET;
+  let rootpath = PATH;
 
   //useEffect creada para que la pagina inicie con los datos de nuestro api, PARA QUE LOS DATOS APAREZCAN EN LA TABLA AL PRINCIPIO
   useEffect(() => {
@@ -47,7 +48,7 @@ export const Vendedor = () => {
     };
 
     //configurando POST de la api
-    api.post(rootpath + "vendedor/create", options).then(res => {
+    api.post(rootpath + VENDEDOR.CREATE, options).then(res => {
       console.log(res);
       if (!res.err) {
         //si no hay error actualiza la base de datos
@@ -63,7 +64,7 @@ export const Vendedor = () => {
   //CONFIGURANDO UPDATE DE LA API
   const updateData = data => {
     //creo variable para no entrar en conflicto con la url que tengo antes
-    let endpoint = `${rootpath + "vendedor/update"}/${data.ve_id}`;
+    let endpoint = `${rootpath + VENDEDOR.UPDATE}/${data.ve_id}`;
     // console.log(endpoint);
 
     let options = {
@@ -103,7 +104,7 @@ export const Vendedor = () => {
       .then((willDelete) => {
         if (willDelete) {
           //creo variable para no entrar en conflicto con la url que tengo antes
-          let endpoint = `${rootpath + "vendedor/delete"}/${obj.ve_id}`;
+          let endpoint = `${rootpath + VENDEDOR.DELETE}/${obj.ve_id}`;
           let options = {
             //este header es necesario por el json-server
             headers: { 'content-type': 'application-json' },
