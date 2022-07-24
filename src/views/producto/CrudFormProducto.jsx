@@ -7,8 +7,8 @@ import { PATH, CATEGORY } from '../config/index'
 const initialForm = {
     pr_id: null,
     pr_nombre: '',
-    pr_precio: 0,
-    pr_stock: 0,
+    pr_precio: '',
+    pr_stock: '',
     ca_id: null
 };
 //
@@ -23,6 +23,7 @@ const CrudForm = ({ createData, updateData, dataToEdit, setDataToEdit, category 
     useEffect(() => {
         if (dataToEdit) {
             setform(dataToEdit);
+            setSelectedValue(dataToEdit.ca_id)  
         } else {
             setform(initialForm);
             fetchData()
@@ -37,6 +38,28 @@ const CrudForm = ({ createData, updateData, dataToEdit, setDataToEdit, category 
             ...form,
             ca_id: value.ca_id,
         });
+    }
+
+    const setCategory = (item) => {
+        setform({
+            ...form,
+            ca_id: item,
+        });
+    }
+
+    const findCategoryById = (id) => {
+        if(categoriesLoad !== null && categoriesLoad !== undefined && categoriesLoad.length > 0){
+            const filter = categoriesLoad.filter(item => {
+                return item.ca_id === id
+            })
+
+            categoriesLoad.forEach( item => {
+                if(item.ca_id === id){
+
+                }
+            })
+
+        }
     }
 
     const fetchData = async () => {
@@ -130,7 +153,7 @@ const CrudForm = ({ createData, updateData, dataToEdit, setDataToEdit, category 
                                         <label className="col-sm-3 col-form-label">Precio</label>
                                         <div className="col-sm-9">
                                             <input
-                                                type="number"
+                                                type="text"
                                                 name="pr_precio"
                                                 placeholder="Precio"
                                                 onChange={handleChange}
@@ -146,7 +169,7 @@ const CrudForm = ({ createData, updateData, dataToEdit, setDataToEdit, category 
                                         <label className="col-sm-3 col-form-label">Stock</label>
                                         <div className="col-sm-9">
                                             <input
-                                                type="number"
+                                                type="text"
                                                 name="pr_stock"
                                                 placeholder="Stock"
                                                 onChange={handleChange}
@@ -159,30 +182,10 @@ const CrudForm = ({ createData, updateData, dataToEdit, setDataToEdit, category 
                                     <div className="form-group row">
                                         <label className="col-sm-3 col-form-label">Categoría</label>
                                         <div className="col-sm-9">
-                                            {/*<Select
-                                                name="category"                                                
-                                                allowClear={true}
-                                                style={{ backgroundColor: 'red'}}
-                                                disabled= {false}                                                
-                                                onChange={handleChangeCategory}
-                                                optionFilterProp="children"
-                                                filterOption={(input, option) =>
-                                                    option.props.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
-                                                }
-                                                /*className={styles.select}
-                                                cacheOptions
-                                                defaultOptions
-                                                value={selectedValue}
-                                                getOptionLabel={e => e.ca_nombre}
-                                                getOptionValue={e => e.ca_id}
-                                                loadOptions={fetchData}
-                                                onChange={handleChangeC}*/
-                                            /*>*/}
-                                                {/*genCategories()}
-                                            </Select>*/}
                                             <select
                                             className="form-control"                                            
-                                            onChange={handleChangeCategory}                                       
+                                            onChange={handleChangeCategory} 
+                                            value={selectedValue}                                      
                                             >                      
                                             <option>Seleccione un valor</option>                          
                                                 {genCategories()}
