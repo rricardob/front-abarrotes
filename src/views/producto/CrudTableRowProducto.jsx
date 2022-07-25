@@ -1,4 +1,7 @@
 import React from 'react';
+import moment from 'moment';
+
+
 
 const CrudTableRow = ({ el, setDataToEdit, deleteData }) => {
   let { co_id, co_fecha, cliente, vendedor, eliminado, co_total } = el;
@@ -7,7 +10,7 @@ const CrudTableRow = ({ el, setDataToEdit, deleteData }) => {
   return (
     <tr>
       <td>{co_id}</td>
-      <td>{co_fecha}</td>
+      <td>{moment(co_fecha).format('DD/MM/yyyy')}</td>
       <td>{cliente}</td>
       <td>{vendedor}</td>      
       <td className='text-center'> 
