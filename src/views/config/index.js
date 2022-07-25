@@ -10,7 +10,7 @@ export const PRODUCT = {
 }
 
 export const CATEGORY = {
-    GET: 'categoria/findAll',
+    GET:    'categoria/findAll',
     CREATE: 'categoria/create',
     UPDATE: 'categoria/update',
     DELETE: 'categoria/delete'
@@ -28,4 +28,11 @@ export const VENDEDOR = {
     CREATE: 'vendedor/create',
     UPDATE: 'vendedor/update',
     DELETE: 'vendedor/delete'
+}
+
+export const SALE_RECEIPT = {
+    GET:    'comprobante/findAll',
+    CREATE: 'comprobante/create',
+    UPDATE: 'comprobante/update',
+    DELETE: 'comprobante/delete'
 }

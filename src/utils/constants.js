@@ -1,9 +1,9 @@
 
 
-const getColumnsProducts = () => {
+export const getColumnsProducts = () => {
     return ['Nombre','Precio','Stock','Categoria','Estado']
 }
 
-export{
-    getColumnsProducts
+export const getColumnsSale = () => {
+    return ['#','Fecha','Cliente','Vendedor','Estado','Total','Acciones']
 }
