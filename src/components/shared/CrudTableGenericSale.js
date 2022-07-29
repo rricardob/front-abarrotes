@@ -1,5 +1,5 @@
 import React from 'react';
-import CrudTableRow from '../../views/producto/CrudTableRowProducto';
+import CrudTableRowComprobante from '../../views/comprobante/CrudTableRowComprobante';
 
 const CrudTableGenericSale = ({ data, setDataToEdit, deleteData, colNames }) => {
 
@@ -26,7 +26,7 @@ const CrudTableGenericSale = ({ data, setDataToEdit, deleteData, colNames }) => 
                 <tbody>
                   {data.length > 0 ? (
                     data.map(el => (
-                      <CrudTableRow
+                      <CrudTableRowComprobante
                         key={el}
                         el={el}
                         setDataToEdit={setDataToEdit}

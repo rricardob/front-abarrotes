@@ -1,7 +1,7 @@
 
 
 export const getColumnsProducts = () => {
-    return ['Nombre','Precio','Stock','Categoria','Estado']
+    return ['Nombre','Precio','Stock','Categoria','Estado','Acciones']
 }
 
 export const getColumnsSale = () => {

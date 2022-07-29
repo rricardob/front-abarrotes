@@ -60,6 +60,7 @@ export function Comprobante() {
         filterData={filter}
         />
 
+      <button type="button" className="btn btn-primary btn-sm">Nuevo Comprobante</button><br></br>
         {db && (
           <CrudTableGenericSale
             data={db}
