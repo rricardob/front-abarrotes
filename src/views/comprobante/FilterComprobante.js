@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { DatePicker } from 'antd';
+import { DatePicker, Select } from 'antd';
 import { helpHttp } from '../../helpers/helpHttp';
 import "antd/dist/antd.css";
 import { VENDEDOR, CLIENTE, PATH } from '../config/index'
@@ -13,6 +13,8 @@ const initialFilter = {
     f_fin: '',
     estado: ''
 };
+
+const { Option } = Select;
 
 const FilterComprobante = ({ filterData }) => {
 
@@ -36,7 +38,6 @@ const FilterComprobante = ({ filterData }) => {
     }
 
     const handleReset = e => {
-        e.preventDefault()
         setform(initialFilter);
     };
 
@@ -47,6 +48,24 @@ const FilterComprobante = ({ filterData }) => {
         });
     };
 
+    const onChangeClient = (value) => {
+
+        setform({
+            ...form,
+            'cl_id': value,
+        });
+
+    };
+
+    const onChangeVendor = (value) => {
+
+        setform({
+            ...form,
+            've_id': value,
+        });
+
+    };
+
     const onChange = (value, dateString) => {
         setform({
             ...form,
@@ -55,13 +74,20 @@ const FilterComprobante = ({ filterData }) => {
         });
     }
 
+    const onChangeEstado = (value) => {
+        setform({
+            ...form,
+            'estado': value
+        });
+    }
+
     const genVendedor = () => {
         const options = [];
         vendedores.map((vendor) =>
             options.push(
-                <option key={vendor.ve_id} value={vendor.ve_id}>
+                <Option key={vendor.ve_id} value={vendor.ve_id}>
                     {vendor.ve_nombre} {vendor.ve_apellido}
-                </option>
+                </Option>
             )
         );
         return options;
@@ -71,9 +97,9 @@ const FilterComprobante = ({ filterData }) => {
         const options = [];
         clientes.map((client) =>
             options.push(
-                <option key={client.cl_id} value={client.cl_id}>
+                <Option key={client.cl_id} value={client.cl_id}>
                     {client.cl_nombre} {client.cl_apellido}
-                </option>
+                </Option>
             )
         );
         return options;
@@ -107,7 +133,7 @@ const FilterComprobante = ({ filterData }) => {
                                     <div className="form-group row">
                                         <label className="col-sm-3 col-form-label">Cliente</label>
                                         <div className="col-sm-9">
-                                            <select
+                                            {/*<select
                                                 className="form-control"
                                                 name='cl_id'
                                                 onChange={handleChange}
@@ -116,7 +142,19 @@ const FilterComprobante = ({ filterData }) => {
                                             >
                                                 <option>Seleccione un Cliente</option>
                                                 {genCliente()}
-                                            </select>
+                                            </select>*/}
+                                            <Select
+                                                allowClear
+                                                showSearch
+                                                placeholder="Seleccione un Cliente"
+                                                optionFilterProp="children"
+                                                name='cl_id'
+                                                onChange={onChangeClient}
+                                                filterOption={(input, option) => option.children.toString().toLowerCase().includes(input.toString().toLowerCase())}
+                                                style={{ width: '100%', }}
+                                            >
+                                                {genCliente()}
+                                            </Select>
                                         </div>
                                     </div>
                                 </div>
@@ -124,7 +162,7 @@ const FilterComprobante = ({ filterData }) => {
                                     <div className="form-group row">
                                         <label className="col-sm-3 col-form-label">Vendedor</label>
                                         <div className="col-sm-9">
-                                            <select
+                                            {/*<select
                                                 className="form-control"
                                                 name='ve_id'
                                                 onChange={handleChange}
@@ -133,7 +171,19 @@ const FilterComprobante = ({ filterData }) => {
                                             >
                                                 <option>Seleccione un Vendedor</option>
                                                 {genVendedor()}
-                                            </select>
+                                            </select>*/}
+                                            <Select
+                                                allowClear
+                                                showSearch
+                                                placeholder="Seleccione un Vendedor"
+                                                optionFilterProp="children"
+                                                name='ve_id'
+                                                onChange={onChangeVendor}
+                                                filterOption={(input, option) => option.children.toString().toLowerCase().includes(input.toString().toLowerCase())}
+                                                style={{ width: '100%', }}
+                                            >
+                                                {genVendedor()}
+                                            </Select>
                                         </div>
                                     </div>
                                 </div>
@@ -155,18 +205,20 @@ const FilterComprobante = ({ filterData }) => {
                                     <div className="form-group row">
                                         <label className="col-sm-3 col-form-label">Estado</label>
                                         <div className="col-sm-9">
-                                            <select
-                                                className="form-control"
+                                            <Select
+                                                allowClear
+                                                showSearch
+                                                placeholder="Selecione un Estado"
+                                                optionFilterProp='childre'
                                                 name='estado'
-                                                onChange={handleChange}
-                                                defaultValue={form.estado}
-                                                value={form.estado}
+                                                onChange={onChangeEstado}
+                                                filterOption={(input, option) => option.children.toString().toLowerCase().includes(input.toString().toLowerCase())}
+                                                style={{ width: '100%', }}
                                             >
-                                                <option>Seleccione un valor</option>
-                                                <option value={1}>Activo</option>
-                                                <option value={2}>Anulado</option>
-                                                <option value={0}>Inactivo</option>
-                                            </select>
+                                                <Option key={0} value={0}>Activo</Option>
+                                                <Option key={2} value={2}>Anulado</Option>
+                                                <Option key={1} value={1}>Inactivo</Option>
+                                            </Select>
                                         </div>
                                     </div>
                                 </div>
