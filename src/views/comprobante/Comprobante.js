@@ -39,37 +39,6 @@ export function Comprobante() {
     let url = rootpath + SALE_RECEIPT.GET + 
     "?cliente="+params.cl_id+"&vendedor="+params.ve_id+"&estado="+params.estado+"&fecinicio="+params.f_ini+"&fecfin="+params.f_fin;
 
-    /*if (params.cl_id !== null && params.cl_id !== undefined) {
-      url += "?cliente="+params.cl_id
-    }else{
-      url +="?cliente=''"
-    }
-
-    if (params.ve_id !== null && params.ve_id !== undefined) {
-      url += "&vendedor="+params.ve_id
-    }else{
-      url +="&vendedor=''"
-    }
-
-    if (params.estado !== null && params.estado !== undefined) {
-      url += "&estado="+params.estado
-    }else{
-      url +="&estado=''"
-    }
-
-    if (params.f_ini !== null && params.f_ini !== undefined) {
-      url += "&fecinicio="+params.f_ini
-    }else{
-      url +="&fecinicio=''"
-    }
-
-    if (params.f_fin !== null && params.f_fin !== undefined) {
-      url += "&fecfin="+params.f_fin
-    }else{
-      url +="&fecfin=''"
-    }*/
-
-
     api.get( url )
     .then(res => {
       setDb(res)

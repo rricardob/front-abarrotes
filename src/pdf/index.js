@@ -1,0 +1,1 @@
+const pdf = require('html-pdf');

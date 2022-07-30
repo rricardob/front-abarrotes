@@ -11,7 +11,7 @@ const initialFilter = {
     cl_id: null,
     f_ini: '',
     f_fin: '',
-    estado: ''
+    estado: null
 };
 
 const { Option } = Select;
@@ -150,6 +150,7 @@ const FilterComprobante = ({ filterData }) => {
                                                 optionFilterProp="children"
                                                 name='cl_id'
                                                 onChange={onChangeClient}
+                                                value={form.cl_id}
                                                 filterOption={(input, option) => option.children.toString().toLowerCase().includes(input.toString().toLowerCase())}
                                                 style={{ width: '100%', }}
                                             >
@@ -178,6 +179,7 @@ const FilterComprobante = ({ filterData }) => {
                                                 placeholder="Seleccione un Vendedor"
                                                 optionFilterProp="children"
                                                 name='ve_id'
+                                                value={form.ve_id}
                                                 onChange={onChangeVendor}
                                                 filterOption={(input, option) => option.children.toString().toLowerCase().includes(input.toString().toLowerCase())}
                                                 style={{ width: '100%', }}
@@ -212,6 +214,7 @@ const FilterComprobante = ({ filterData }) => {
                                                 optionFilterProp='childre'
                                                 name='estado'
                                                 onChange={onChangeEstado}
+                                                value={form.estado}
                                                 filterOption={(input, option) => option.children.toString().toLowerCase().includes(input.toString().toLowerCase())}
                                                 style={{ width: '100%', }}
                                             >
@@ -225,7 +228,7 @@ const FilterComprobante = ({ filterData }) => {
                             </div>
                             <div className='row'>
                                 <div className='col-md-6'>
-                                    <input type="submit" value="Buscar" className="btn btn-primary mr-2" onClick={filterData} />
+                                    <input type="submit" value="Buscar" className="btn btn-primary mr-2"/>
                                     <input type="reset" value="Limpiar" className="btn btn-dark" onClick={handleReset} />
                                 </div>
                             </div>
