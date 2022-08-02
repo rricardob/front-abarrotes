@@ -1,7 +1,7 @@
 import React from 'react';
 import CrudTableRowComprobante from '../../views/comprobante/CrudTableRowComprobante';
 
-const CrudTableGenericSale = ({ data, setDataToEdit, deleteData, colNames }) => {
+const CrudTableGenericSale = ({ data, setDataToEdit, deleteData, colNames, cancelData, viewPdf }) => {
 
   return (
 
@@ -31,6 +31,8 @@ const CrudTableGenericSale = ({ data, setDataToEdit, deleteData, colNames }) => 
                         el={el}
                         setDataToEdit={setDataToEdit}
                         deleteData={deleteData}
+                        cancelData={cancelData}
+                        viewPdf={viewPdf}
                       />
                     ))
                   ) : (
