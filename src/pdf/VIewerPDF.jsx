@@ -123,7 +123,7 @@ export const ViewerPDF = ({ data }) => {
                 </table>
             </div>
             <div className="footer">
-                <h6>Chimbote {moment().format('YYYY-MM-DD')} {getState()}</h6>
+                <h6>Chimbote {moment().format('YYYY-MMMM-DD')} {getState()}</h6>
             </div>
         </div>
     );

@@ -1,12 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useReducer } from 'react';
 import FilterComprobante from './FilterComprobante';
 import { helpHttp } from '../../helpers/helpHttp';
-import { SALE_RECEIPT, PATH } from '../config/index'
+import { SALE_RECEIPT, PATH, CANCEL } from '../config/index'
 import { getColumnsSale } from '../../utils/constants'
 import CrudTableGenericSale from '../../components/shared/CrudTableGenericSale'
 import { Button, Modal } from 'antd';
 import "antd/dist/antd.css";
 import { ViewerPDF } from '../../pdf/VIewerPDF';
+import swal from 'sweetalert';
 
 
 export function Comprobante() {
@@ -20,10 +21,14 @@ export function Comprobante() {
   const [dataToEdit, setDataToEdit] = useState(null);
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [dataPDF, setDataPDF] = useState(null);
+  const [ignored, forceUpdate] = useReducer(x => x + 1, 0)
 
   useEffect(() => {
     setLoading(true);
+    getAll()
+  }, [rootpath + SALE_RECEIPT.GET]);
 
+  const getAll = () => {
     api.get(rootpath + SALE_RECEIPT.GET)
       .then(res => {
 
@@ -37,7 +42,7 @@ export function Comprobante() {
 
         setLoading(false);
       });
-  }, [rootpath + SALE_RECEIPT.GET]);
+  }
 
   const filter = (params) => {
     console.log("filter -> ", params)
@@ -64,6 +69,59 @@ export function Comprobante() {
 
   const cancelData = params => {
 
+
+    if (params.eliminado === 2) {
+      swal("Oops!", "El comprobante N° " + params.co_id + " ya se encuentra anulado");
+      return
+    }
+
+    if (params.eliminado === 1) {
+      swal("Oops!", "El comprobante N° " + params.co_id + " se encuentra inactivo no puede ser anulado");
+      return
+    }
+
+    const id = params.co_id;
+
+    let url = rootpath + SALE_RECEIPT.CANCEL + '/' + id
+
+
+    swal({
+      title: "¿Estas Seguro de Anular el Comprobante N°" + id + "?",
+      text: "",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+    })
+      .then((willDelete) => {
+        if (willDelete) {
+
+          api.get(url)
+            .then(res => {
+              console.log(res)
+
+              if (res.rows_affected !== 0) {
+                swal("se Anulo el comprobante satisfactoriamente!", {
+                  icon: "success",
+                });
+
+                getAll()
+
+                /*let newData = db.map(el => (el.co_id === id ? params : el));
+                //si no hay error actualiza la base de datos
+                setDb(newData);*/
+
+              }
+
+            })
+            .catch(err => {
+              console.error(err)
+              setError(err)
+              swal("Oops!", "Ocurrio un error al intentar anular el comprobante " + err, "error");
+            })
+
+        }
+      });
+
   }
 
   const viewPdf = async data => {
@@ -83,11 +141,11 @@ export function Comprobante() {
         setError(err)
         
       })*/
-    
+
   }
 
 
-  
+
 
   const handleOk = () => {
     setIsModalVisible(false);

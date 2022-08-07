@@ -83,6 +83,10 @@ const FilterComprobante = ({ filterData }) => {
 
     const genVendedor = () => {
         const options = [];
+        console.log("vendedores => ",vendedores)
+        if(vendedores === null || vendedores === undefined || vendedores.length === 0){
+            return options;
+        }
         vendedores.map((vendor) =>
             options.push(
                 <Option key={vendor.ve_id} value={vendor.ve_id}>
@@ -95,6 +99,9 @@ const FilterComprobante = ({ filterData }) => {
 
     const genCliente = () => {
         const options = [];
+        if(clientes === null || clientes === undefined || clientes.length === 0){
+            return options;
+        }
         clientes.map((client) =>
             options.push(
                 <Option key={client.cl_id} value={client.cl_id}>
@@ -109,6 +116,10 @@ const FilterComprobante = ({ filterData }) => {
         await api.get(rootpath + VENDEDOR.GET)
             .then(res => {
                 setvendedores(res)
+            })
+            .catch(err => {
+                console.error(err)
+                setvendedores(null)
             });
     }
 
@@ -116,6 +127,10 @@ const FilterComprobante = ({ filterData }) => {
         await api.get(rootpath + CLIENTE.GET)
             .then(res => {
                 setclientes(res)
+            })
+            .catch(err => {
+                console.error(err)
+                setclientes([])
             });
     }
 

@@ -35,5 +35,6 @@ export const SALE_RECEIPT = {
     CREATE: 'comprobante/create',
     UPDATE: 'comprobante/update',
     DELETE: 'comprobante/delete',
-    FINDBYID: 'comprobante/findById'
+    FINDBYID: 'comprobante/findById',
+    CANCEL: 'comprobante/anular'
 }
