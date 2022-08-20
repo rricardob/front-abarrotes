@@ -1,0 +1,16 @@
+.title {
+    color: #fff;
+}
+
+.ant-modal-content {
+    background-color: #191C24;
+}
+
+.selected-row {
+    background-color: #5F3F9A;
+    color: #fff;
+}
+
+td {
+    cursor: pointer;
+}

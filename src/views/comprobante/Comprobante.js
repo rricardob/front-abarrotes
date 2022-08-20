@@ -8,6 +8,7 @@ import { Button, Modal } from 'antd';
 import "antd/dist/antd.css";
 import { ViewerPDF } from '../../pdf/VIewerPDF';
 import swal from 'sweetalert';
+import { Link } from 'react-router-dom';
 
 
 export function Comprobante() {
@@ -165,7 +166,7 @@ export function Comprobante() {
           <nav aria-label="breadcrumb">
             <ol className="breadcrumb">
               <li className="breadcrumb-item"><a href="#">Comprobante</a></li>
-              <li className="breadcrumb-item active" aria-current="page">Mantenimiento de Comprobantes</li>
+              <li className="breadcrumb-item active" aria-current="page">Listado de Comprobantes</li>
             </ol>
           </nav>
         </div>
@@ -184,7 +185,10 @@ export function Comprobante() {
             data={dataPDF} />
         </Modal>
 
-        <button type="button" className="btn btn-primary btn-sm">Nuevo Comprobante</button><br></br>
+        <Link to="/comprobanteMnt" className="nav-item menu-items">
+          <button type="button" className="btn btn-primary btn-sm">Nuevo Comprobante</button><br></br>
+        </Link>
+
         {db && (
           <CrudTableGenericSale
             data={db}

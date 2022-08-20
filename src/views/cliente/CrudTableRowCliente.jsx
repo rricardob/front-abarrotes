@@ -1,6 +1,6 @@
 import React from 'react';
 
-const CrudTableRow = ({ el, setDataToEdit, deleteData }) => {
+const CrudTableRow = ({ el, setDataToEdit, deleteData, view = '' }) => {
   let { cl_nombre, cl_apellido, cl_dni, cl_direccion, cl_telefono, cl_email, cl_id, eliminado } = el;
   let stateClass = eliminado === 0 ? "badge badge-success" : "badge badge-danger";
 
@@ -18,8 +18,8 @@ const CrudTableRow = ({ el, setDataToEdit, deleteData }) => {
         </label> 
       </td>
       <td className='text-center'>
-        <button type="button" className="btn btn-primary btn-sm" onClick={() => setDataToEdit(el)}>Editar</button>&nbsp;
-        <button type="button" className="btn btn-danger btn-sm" onClick={() => deleteData(el)}>Eliminar</button>
+        <button type="button" className="btn btn-primary btn-sm" onClick={() => setDataToEdit(el)}>{view !== '' ? 'Seleccionar' : 'Editar'}</button>&nbsp;
+        <button type="button" className="btn btn-danger btn-sm" onClick={() => deleteData(el)}>{view !== '' ? 'Cancelar' : 'Eliminar'}</button>
       </td>
     </tr>
   );

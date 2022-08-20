@@ -8,6 +8,7 @@ import { Cliente } from './views/cliente/Cliente';
 import { Producto } from './views/producto/Producto';
 import { Categoria } from './views/categoria/Categoria';
 import { Comprobante } from './views/comprobante/Comprobante';
+import { ComprobanteMnt } from './views/comprobante/ComprobanteMnt';
 
 function App() {
   return (
@@ -36,6 +37,10 @@ function App() {
 
         <Route path='/comprobante' element={<Dashboard />}>
           <Route index element={<Comprobante />} />
+        </Route>
+
+        <Route path='/comprobanteMnt' element={<Dashboard />}>
+          <Route index element={<ComprobanteMnt />} />
         </Route>
 
       </Routes>
