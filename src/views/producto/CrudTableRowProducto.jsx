@@ -17,7 +17,7 @@ const CrudTableRow = ({ el, setDataToEdit, deleteData, view = '' }) => {
       </td>
       <td className='text-center'>
         <button type="button" className="btn btn-primary btn-sm" onClick={() => setDataToEdit(el)}>{view !== '' ? 'Seleccionar' : 'Editar'}</button>&nbsp;
-        <button type="button" className="btn btn-danger btn-sm" onClick={() => deleteData(el)}>{view !== '' ? 'Cancelar' : 'Eliminar'}</button>
+        { view !== '' ? '' :<button type="button" className="btn btn-danger btn-sm" onClick={() => deleteData(el)}>Eliminar</button>}
       </td>
     </tr>
   );

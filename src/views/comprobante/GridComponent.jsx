@@ -8,7 +8,7 @@ import "antd/dist/antd.css";
 import { getColumnsProducts, getColumnsVendedor, getColumsCliente } from '../../utils/constants';
 import { helpHttp } from '../../helpers/helpHttp';
 import { VENDEDOR, CLIENTE, PATH, PRODUCT } from '../config/index'
-import TableRowGridComponente from './TableRowGridComponenteCliente';
+import TableRowGridComponente from './TableRowGridComprobanteDetalle';
 import CrudTableRow from '../cliente/CrudTableRowCliente'
 import CrudTableRowProducto from '../producto/CrudTableRowProducto'
 import CrudTableRowVendedor from '../vendedor/CrudTableRowVendedor'
@@ -27,6 +27,7 @@ export function GridComponent({ view, rowSelectedCliente, rowSelectedVendedor, r
     const api = helpHttp();
     const rootpath = PATH;
 
+
     useEffect(() => {
         switch (view) {
             case 'cliente':
@@ -35,11 +36,14 @@ export function GridComponent({ view, rowSelectedCliente, rowSelectedVendedor, r
             case 'vendedor':
                 getDataVendedor()
                 break;
-            default:
+            case 'producto':
                 getDataProducto()
                 break;
+            default:
+                break;
         }
-    });
+    },[view]);
+
 
     const onMouseEnter = (e) => {
         console.log(e)
@@ -105,16 +109,16 @@ export function GridComponent({ view, rowSelectedCliente, rowSelectedVendedor, r
                                 <thead>
 
                                     {view === 'cliente' ?
-                                            <tr>
-                                                <th className='text-center'> Nombres </th>
-                                                <th className='text-center'> Apellidos </th>
-                                                <th className='text-center'> DNI </th>
-                                                <th className='text-center'> Direccion </th>
-                                                <th className='text-center'> Telefono </th>
-                                                <th className='text-center'> Email </th>
-                                                <th className='text-center'> Estado </th>
-                                                <th className='text-center'> Acciones </th>
-                                            </tr>
+                                        <tr>
+                                            <th className='text-center'> Nombres </th>
+                                            <th className='text-center'> Apellidos </th>
+                                            <th className='text-center'> DNI </th>
+                                            <th className='text-center'> Direccion </th>
+                                            <th className='text-center'> Telefono </th>
+                                            <th className='text-center'> Email </th>
+                                            <th className='text-center'> Estado </th>
+                                            <th className='text-center'> Acciones </th>
+                                        </tr>
                                         : view === 'vendedor' ?
 
                                             <tr>
@@ -182,10 +186,10 @@ export function GridComponent({ view, rowSelectedCliente, rowSelectedVendedor, r
                                                 productos.map(el => (
                                                     <CrudTableRowProducto
                                                         key={el.pr_id}
-                                                        row={el}
+                                                        el={el}
                                                         view={view}
-                                                        rowSelected={rowSelectedProducto}
-                                                        cancel={cancel}
+                                                        setDataToEdit={rowSelectedProducto}
+                                                        deleteData={cancel}
                                                     />
                                                 ))
 

@@ -38,3 +38,12 @@ export const SALE_RECEIPT = {
     FINDBYID: 'comprobante/findById',
     CANCEL: 'comprobante/anular'
 }
+
+export const SALE_RECEIPT_DETAIL = {
+    GET:    'detallecomprobante/findAll',
+    CREATE: 'detallecomprobante/create',
+    UPDATE: 'detallecomprobante/update',
+    DELETE: 'detallecomprobante/delete',
+    FINDBYID: 'detallecomprobante/findById',
+    CANCEL: 'detallecomprobante/anular'
+}
